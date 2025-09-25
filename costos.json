@@ -35,29 +35,30 @@
       "servicios": {
         "contenidoRRSS": {
           "nombre": "Contenido para RRSS",
-          "costoMensual": 7000,
+          "costoInicio": 9500,
+          "costoMensual": 9500,
           "entregables": "4 imágenes fijas, 2 carruseles y 2 videos"
         },
         "creacionAds": {
           "nombre": "Creación de Ads inicial",
           "costoInicio": 14000,
-          "frecuencia": "bajo demanda",
-          "recomendacion": "cada seis meses",
+          "frecuencia": "Bajo demanda",
+          "recomendacion": "Cada seis meses",
           "entregables": "8 imágenes fijas, 4 carruseles y 4 videos"
         },
         "gestionAds": {
           "nombre": "Gestión de Ads Digitales",
-          "costoMensual": 9000,
+          "costoMensual": 12500,
           "costoSetup": 9000,
           "comision": 0.30,
           "entregables": "Planificación y gestión de campañas en Google Search y Facebook Ads"
         }
       },
       "totales": {
-        "inversionMensual": 16000,
-        "inversionInicial": 30000,
+        "inversionMensual": 22000,
+        "inversionInicial": 32500,
         "inversionMedios": 30000,
-        "primeraInversion": 46000
+        "primeraInversion": 52000
       },
       "notas": {
         "comision": "No incluye porcentaje de comisión por pagos publicitarios",

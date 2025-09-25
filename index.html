@@ -168,26 +168,102 @@
       overflow-y: auto;
       padding: 10px;
     }
-    .slide[data-title="Presupuesto de servicios"] .services-grid {
-      margin: 10px 0;
-      gap: 16px;
+    .slide[data-title="Presupuesto de servicios"] .budget-table-wrapper {
+      background: rgba(12,20,32,.78);
+      border: 1px solid rgba(148,163,184,.18);
+      border-radius: 22px;
+      padding: 18px 20px;
+      box-shadow: 0 18px 40px rgba(3,7,18,.32);
     }
-    .slide[data-title="Presupuesto de servicios"] .strategy-summary {
-      margin-top: 10px;
+    .slide[data-title="Presupuesto de servicios"] .budget-table-scroll {
+      overflow-x: auto;
     }
-    .slide[data-title="Presupuesto de servicios"] .contact-card {
-      margin-top: 10px;
+    .slide[data-title="Presupuesto de servicios"] .budget-table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      color: rgba(226,232,240,.86);
     }
-    /* Estilos para el nuevo diseño de tres columnas */
+    .slide[data-title="Presupuesto de servicios"] .budget-table thead th {
+      background: linear-gradient(135deg, var(--brand), var(--accent-blue));
+      color: #04121A;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table thead th:first-child {
+      border-top-left-radius: 14px;
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table thead th:last-child {
+      border-top-right-radius: 14px;
+      text-align: center;
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table tbody tr {
+      background: rgba(255,255,255,.02);
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table tbody tr:nth-child(even) {
+      background: rgba(255,255,255,.04);
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table tbody tr:not(:last-child) {
+      border-bottom: 1px solid rgba(148,163,184,.18);
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table td {
+      padding: 14px 14px;
+      vertical-align: top;
+      border-right: 1px solid rgba(148,163,184,.08);
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-table td:last-child {
+      border-right: none;
+      text-align: center;
+    }
+    .slide[data-title="Presupuesto de servicios"] .service-label {
+      display: block;
+      font-weight: 600;
+      color: #F8FAFC;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .slide[data-title="Presupuesto de servicios"] .service-meta {
+      display: block;
+      font-size: 11px;
+      color: rgba(148,163,184,.75);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .slide[data-title="Presupuesto de servicios"] .deliverable-text {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(226,232,240,.78);
+    }
+    .slide[data-title="Presupuesto de servicios"] .amount {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .slide[data-title="Presupuesto de servicios"] .amount-note {
+      display: block;
+      font-size: 10px;
+      color: rgba(148,163,184,.75);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-top: 6px;
+    }
     .slide[data-title="Presupuesto de servicios"] .budget-totals-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 12px;
-      margin: 16px 0;
+      margin: 18px 0;
     }
     .slide[data-title="Presupuesto de servicios"] .budget-total-section {
-      padding: 12px;
-      border-radius: 12px;
+      padding: 14px;
+      border-radius: 14px;
       text-align: center;
     }
     .slide[data-title="Presupuesto de servicios"] .budget-total-section.initial {
@@ -202,19 +278,30 @@
       background: linear-gradient(135deg, rgba(234,33,214,0.1), rgba(247,92,76,0.1));
       border: 1px solid rgba(234,33,214,0.2);
     }
-    /* Estilos para las notas horizontales */
     .slide[data-title="Presupuesto de servicios"] .budget-notes-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
       margin: 12px 0;
     }
     .slide[data-title="Presupuesto de servicios"] .budget-note-item {
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(148,163,184,0.08);
-      border-radius: 8px;
-      padding: 8px 10px;
+      border-radius: 10px;
+      padding: 10px 12px;
       text-align: center;
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-note-item div:first-child {
+      font-size: 11px;
+      color: rgba(226,232,240,.7);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .slide[data-title="Presupuesto de servicios"] .budget-note-item div:last-child {
+      font-size: 11px;
+      color: rgba(226,232,240,.88);
+      margin-top: 4px;
     }
 
     /* Slide 2 screen fit optimization */
@@ -1606,110 +1693,49 @@
         padding: 10px !important;
         max-height: calc(100vh - 120px) !important;
       }
-      .slide[data-title="Presupuesto de servicios"] .services-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        margin: 8px 0;
+      .slide[data-title="Presupuesto de servicios"] .budget-table-wrapper {
+        padding: 14px 16px;
+        border-radius: 18px;
       }
-      .slide[data-title="Presupuesto de servicios"] .service-header-aligned {
-        gap: 8px;
-        padding: 10px;
-        margin-bottom: 8px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .service-icon-main {
-        width: 32px;
-        height: 32px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .service-icon-main svg {
-        width: 16px;
-        height: 16px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .service-header-aligned h3 {
-        font-size: 16px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .lead {
-        font-size: 12px !important;
-        margin-bottom: 8px !important;
-      }
-      .slide[data-title="Presupuesto de servicios"] .balanced-icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 8px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .icon-list.balanced li {
-        padding: 8px 10px;
-        gap: 6px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .icon-list.balanced span {
-        font-size: 12px;
-        line-height: 1.3;
-      }
-      .slide[data-title="Presupuesto de servicios"] .strategy-summary {
-        margin-top: 8px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .summary-card {
-        padding: 10px;
-        gap: 8px;
-        max-width: 100%;
-      }
-      .slide[data-title="Presupuesto de servicios"] .summary-icon {
-        width: 28px;
-        height: 28px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .summary-icon svg {
-        width: 14px;
-        height: 14px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .summary-content h4 {
+      .slide[data-title="Presupuesto de servicios"] .budget-table {
+        min-width: 540px;
         font-size: 12px;
       }
-      .slide[data-title="Presupuesto de servicios"] .summary-content p {
+      .slide[data-title="Presupuesto de servicios"] .budget-table thead th {
         font-size: 10px;
-        line-height: 1.2;
+        padding: 10px 12px;
       }
-      .slide[data-title="Presupuesto de servicios"] .contact-card {
-        max-width: 100%;
-        margin-top: 8px;
-        padding: 12px 16px;
-        gap: 10px;
+      .slide[data-title="Presupuesto de servicios"] .budget-table td {
+        padding: 10px 12px;
       }
-      .slide[data-title="Presupuesto de servicios"] .contact-row {
-        gap: 10px;
-        font-size: 12px;
+      .slide[data-title="Presupuesto de servicios"] .service-label {
+        font-size: 13px;
       }
-      .slide[data-title="Presupuesto de servicios"] .icon-circle {
-        width: 28px;
-        height: 28px;
+      .slide[data-title="Presupuesto de servicios"] .deliverable-text {
+        font-size: 11px;
+        line-height: 1.4;
       }
-      .slide[data-title="Presupuesto de servicios"] .icon-circle svg {
-        width: 14px;
-        height: 14px;
+      .slide[data-title="Presupuesto de servicios"] .amount {
+        font-size: 14px;
       }
-      /* Responsive para el nuevo diseño de tres columnas */
+      .slide[data-title="Presupuesto de servicios"] .amount-note {
+        font-size: 9px;
+      }
       .slide[data-title="Presupuesto de servicios"] .budget-totals-grid {
         grid-template-columns: 1fr;
         gap: 10px;
         margin: 12px 0;
+      }
+      .slide[data-title="Presupuesto de servicios"] .budget-total-section {
+        padding: 12px;
       }
       .slide[data-title="Presupuesto de servicios"] .budget-notes-grid {
         grid-template-columns: 1fr;
         gap: 8px;
         margin: 10px 0;
       }
-      .slide[data-title="Presupuesto de servicios"] .budget-total-section {
-        padding: 10px;
-      }
-      .slide[data-title="Presupuesto de servicios"] .budget-total-section h3 {
-        font-size: 11px !important;
-      }
-      .slide[data-title="Presupuesto de servicios"] .budget-total-section .budget-amount {
-        font-size: 16px !important;
-      }
-      .slide[data-title="Presupuesto de servicios"] .budget-total-section p {
-        font-size: 8px !important;
-      }
       .slide[data-title="Presupuesto de servicios"] .budget-note-item {
-        padding: 6px 8px;
+        padding: 8px 10px;
       }
       .slide[data-title="Presupuesto de servicios"] .budget-note-item div:first-child {
         font-size: 9px !important;
@@ -4018,144 +4044,113 @@
       <h2>Presupuesto de Servicios</h2>
       <p class="lead" style="margin-bottom: 12px; font-size: 14px;">Inversión estratégica diseñada para maximizar el retorno en la captación de talento y posicionamiento digital de SAPI Seguridad, con servicios especializados y optimización continua de campañas.</p>
 
-      <div class="services-grid" style="margin: 16px 0; gap: 20px;">
-        <div class="service-column">
-          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
-            <div class="service-icon-main" style="width: 40px; height: 40px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios Recurrentes</h3>
-          </div>
-          <div class="services-content">
-            <ul class="icon-list balanced" style="gap: 8px;">
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;" id="slide19-contenido-costo" data-costo-slide="slide19" data-costo-campo="servicios.contenidoRRSS.costoMensual" data-costo-tipo="monto">Contenido para RRSS: 7,000 MXN mensuales</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;" id="slide19-gestion-costo" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.costoMensual" data-costo-tipo="monto">Gestión de Ads Digitales: 9,000 MXN mensuales</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;">Optimización continua y reportes mensuales</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;">Soporte técnico y estratégico permanente</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="budget-table-wrapper">
+        <div class="budget-table-scroll">
+          <table class="budget-table" aria-describedby="presupuesto-intro">
+            <thead>
+              <tr>
+                <th scope="col">Servicio</th>
+                <th scope="col">Entregables</th>
+                <th scope="col">Costo Inicio</th>
+                <th scope="col">Costo Mensual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="service-label" id="slide19-servicio-contenido" data-costo-slide="slide19" data-costo-campo="servicios.contenidoRRSS.nombre">Contenido para RRSS</span>
+                  <span class="service-meta">Gestión continua de redes sociales</span>
+                </td>
+                <td>
+                  <p class="deliverable-text" id="slide19-contenido-entregables" data-costo-slide="slide19" data-costo-campo="servicios.contenidoRRSS.entregables">4 imágenes fijas, 2 carruseles y 2 videos mensuales.</p>
+                </td>
+                <td>
+                  <span class="amount" id="slide19-contenido-inicio" data-costo-slide="slide19" data-costo-campo="servicios.contenidoRRSS.costoInicio" data-costo-tipo="monto">$7,000</span>
+                  <span class="amount-note">Primer mes</span>
+                </td>
+                <td>
+                  <span class="amount" id="slide19-contenido-mensual" data-costo-slide="slide19" data-costo-campo="servicios.contenidoRRSS.costoMensual" data-costo-tipo="monto">$7,000</span>
+                  <span class="amount-note">Renovable</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="service-label" id="slide19-servicio-creacion" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.nombre">Creación de Ads inicial</span>
+                  <span class="service-meta" id="slide19-creacion-recomendacion" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.recomendacion">Recomendado cada seis meses</span>
+                </td>
+                <td>
+                  <p class="deliverable-text" id="slide19-creacion-entregables" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.entregables">8 imágenes fijas, 4 carruseles y 4 videos para campañas.</p>
+                </td>
+                <td>
+                  <span class="amount" id="slide19-creacion-inicio" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.costoInicio" data-costo-tipo="monto">$14,000</span>
+                  <span class="amount-note">Por ejecución</span>
+                </td>
+                <td>
+                  <span class="amount">—</span>
+                  <span class="amount-note" id="slide19-creacion-frecuencia" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.frecuencia">Bajo demanda</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="service-label" id="slide19-servicio-gestion" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.nombre">Gestión de Ads Digitales</span>
+                  <span class="service-meta">Google Ads + Meta Ads</span>
+                </td>
+                <td>
+                  <p class="deliverable-text" id="slide19-gestion-entregables" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.entregables">Planificación y gestión integral de campañas, optimización y reportes.</p>
+                </td>
+                <td>
+                  <span class="amount" id="slide19-gestion-inicio" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.costoSetup" data-costo-tipo="monto">$9,000</span>
+                  <span class="amount-note">Setup inicial</span>
+                </td>
+                <td>
+                  <span class="amount" id="slide19-gestion-mensual" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.costoMensual" data-costo-tipo="monto">$9,000</span>
+                  <span class="amount-note">Mensual</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <!-- </div>
+        <p class="deliverable-text" style="margin-top: 12px; font-size: 11px; text-align: center; color: rgba(148,163,184,0.78);" id="presupuesto-intro">Montos y entregables actualizables desde <code>costos.json</code>; ajusta según la negociación con el cliente.</p>
+      </div> -->
 
-        <div class="service-column">
-          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
-            <div class="service-icon-main" style="width: 40px; height: 40px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios de Inicio</h3>
-          </div>
-          <div class="services-content">
-            <ul class="icon-list balanced" style="gap: 8px;">
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;" id="slide19-creacion-costo" data-costo-slide="slide19" data-costo-campo="servicios.creacionAds.costoInicio" data-costo-tipo="monto">Creación de Ads inicial: 14,000 MXN (bajo demanda)</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;" id="slide19-setup-costo" data-costo-slide="slide19" data-costo-campo="servicios.gestionAds.costoSetup" data-costo-tipo="monto">Setup inicial de campañas: 9,000 MXN</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;">Configuración de tracking y analytics</span>
-              </li>
-              <li style="padding: 8px 10px;">
-                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20,6 9,17 4,12"></polyline>
-                  </svg>
-                </div>
-                <span style="font-size: 13px;">Auditoría inicial de plataformas digitales</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contenedor principal con grid de 3 columnas -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0;">
-
-        <!-- Columna 1: Inversión Inicial -->
-        <div style="background: linear-gradient(135deg, rgba(21,252,175,0.1), rgba(62,123,250,0.1)); border: 1px solid rgba(21,252,175,0.2); border-radius: 12px; padding: 12px;">
+      <!-- Totales resumidos -->
+      <div class="budget-totals-grid">
+        <div class="budget-total-section initial">
           <div style="text-align: center;">
             <h3 style="color: var(--brand); font-size: clamp(12px, 1.6vw, 16px); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Inicial</h3>
-            <div id="slide19-inicial-total" style="font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(21,252,175,0.3);" data-costo-slide="slide19" data-costo-campo="totales.inversionInicial" data-costo-tipo="monto">30,000$</div>
+            <div id="slide19-inicial-total" class="amount" style="font-size: clamp(18px, 2.2vw, 24px); text-shadow: 0 0 20px rgba(21,252,175,0.3);" data-costo-slide="slide19" data-costo-campo="totales.inversionInicial" data-costo-tipo="monto">30,000$</div>
             <p style="color: rgba(226,232,240,0.8); font-size: 9px; margin: 2px 0 0 0; line-height: 1.2;">Setup + 1er mes</p>
           </div>
         </div>
-
-        <!-- Columna 2: Inversión Mensual -->
-        <div style="background: linear-gradient(135deg, rgba(62,123,250,0.1), rgba(21,252,175,0.1)); border: 1px solid rgba(62,123,250,0.2); border-radius: 12px; padding: 12px;">
+        <div class="budget-total-section monthly">
           <div style="text-align: center;">
             <h3 style="color: var(--accent-blue); font-size: clamp(12px, 1.6vw, 16px); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Mensual</h3>
-            <div id="slide19-mensual-total" style="font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(62,123,250,0.3);" data-costo-slide="slide19" data-costo-campo="totales.inversionMensual" data-costo-tipo="monto">16,000$</div>
+            <div id="slide19-mensual-total" class="amount" style="font-size: clamp(18px, 2.2vw, 24px); text-shadow: 0 0 20px rgba(62,123,250,0.3);" data-costo-slide="slide19" data-costo-campo="totales.inversionMensual" data-costo-tipo="monto">16,000$</div>
             <p style="color: rgba(226,232,240,0.8); font-size: 9px; margin: 2px 0 0 0; line-height: 1.2;">Recurrente</p>
           </div>
         </div>
-
-        <!-- Columna 3: Total Primera Inversión -->
-        <div style="background: linear-gradient(135deg, rgba(234,33,214,0.1), rgba(247,92,76,0.1)); border: 1px solid rgba(234,33,214,0.2); border-radius: 12px; padding: 12px;">
+        <div class="budget-total-section final">
           <div style="text-align: center;">
             <h3 style="color: var(--accent-magenta); font-size: clamp(12px, 1.6vw, 16px); margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.08em;">Total 1er Mes</h3>
-            <div id="slide19-primera-inversion" style="font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(234,33,214,0.3);" data-costo-slide="slide19" data-costo-campo="totales.primeraInversion" data-costo-tipo="monto">46,000$</div>
+            <div id="slide19-primera-inversion" class="amount" style="font-size: clamp(18px, 2.2vw, 24px); text-shadow: 0 0 20px rgba(234,33,214,0.3);" data-costo-slide="slide19" data-costo-campo="totales.primeraInversion" data-costo-tipo="monto">46,000$</div>
             <p style="color: rgba(226,232,240,0.8); font-size: 9px; margin: 2px 0 0 0; line-height: 1.2;">Inicial + Medios</p>
           </div>
         </div>
       </div>
 
-      <!-- Notas en horizontal -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0;">
-        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(148,163,184,0.08); border-radius: 8px; padding: 8px 10px; text-align: center;">
-          <div style="font-size: 10px; color: rgba(226,232,240,0.7); font-weight: 500;">Implementación</div>
-          <div style="font-size: 9px; color: rgba(226,232,240,0.9);" data-costo-slide="slide19" data-costo-campo="notas.implementacion">15 días hábiles</div>
+      <!-- Notas clave -->
+      <div class="budget-notes-grid">
+        <div class="budget-note-item">
+          <div>Implementación</div>
+          <div id="slide19-nota-implementacion" data-costo-slide="slide19" data-costo-campo="notas.implementacion">15 días hábiles</div>
         </div>
-        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(148,163,184,0.08); border-radius: 8px; padding: 8px 10px; text-align: center;">
-          <div style="font-size: 10px; color: rgba(226,232,240,0.7); font-weight: 500;">Precios</div>
-          <div style="font-size: 9px; color: rgba(226,232,240,0.9);" data-costo-slide="slide19" data-costo-campo="notas.iva">MXN más IVA</div>
+        <div class="budget-note-item">
+          <div>Precios</div>
+          <div id="slide19-nota-iva" data-costo-slide="slide19" data-costo-campo="notas.iva">MXN más IVA</div>
+        </div>
+        <div class="budget-note-item">
+          <div>Comisión</div>
+          <div id="slide19-nota-comision" data-costo-slide="slide19" data-costo-campo="notas.comision">No incluye comisión de medios</div>
         </div>
       </div>
 
