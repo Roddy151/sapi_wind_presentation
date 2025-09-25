@@ -47,6 +47,7 @@
       z-index:30;
     }
     header.topbar img{height:42px; max-width:160px; object-fit:contain}
+    header.topbar #logo-sapi{height:52px; max-width:200px; object-fit:contain}
     header.topbar .sep{width:1px; height:32px; background:rgba(148,163,184,.25)}
     header.topbar .tag{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#cbd5e1; opacity:.92}
     header.topbar .section-label{margin-left:auto; padding:6px 14px; border-radius:999px; background:rgba(21,252,175,.14); color:var(--brand); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:11px; opacity:0; transform:translateY(-6px); transition:opacity .3s ease, transform .3s ease}
@@ -473,6 +474,14 @@
     .values-grid{display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin-top:18px}
     .pill-note{display:inline-flex; align-items:center; gap:10px; font-size:13px; color:rgba(226,232,240,.75); background:rgba(148,163,184,.12); border-radius:999px; padding:8px 14px; margin-top:10px}
     .pill-note svg{width:14px; height:14px; fill:var(--brand)}
+    .investment-layout{display:grid; gap:22px; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); align-items:flex-start; margin-top:18px}
+    .investment-table{background:rgba(255,255,255,.02); border:1px solid rgba(148,163,184,.12); border-radius:22px; padding:18px}
+    .investment-table table{margin-top:0}
+    .investment-notes{display:grid; gap:16px}
+    .note-card{display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.16); border-radius:20px; padding:16px 18px; box-shadow:0 16px 32px rgba(3,7,18,.25)}
+    .note-card strong{color:#F8FAFC; font-size:15px; letter-spacing:.02em}
+    .note-card p{margin:4px 0 0; font-size:13px; color:rgba(226,232,240,.78); line-height:1.5}
+    .note-card .icon-circle{width:36px; height:36px}
     .timeline{margin:16px 0 0; padding:0; list-style:none; display:grid; gap:18px; counter-reset:step}
     .timeline li{padding-left:60px; position:relative; color:rgba(226,232,240,.82)}
     .timeline li::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:0; width:42px; height:42px; border-radius:14px; background:linear-gradient(135deg, var(--brand), var(--accent-blue)); color:#04121A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; box-shadow:0 12px 24px rgba(21,252,175,.25)}
@@ -483,12 +492,10 @@
     .slide.has-photo::after{display:none}
     .slide.has-photo .photo-bg{position:absolute; inset:0; background:linear-gradient(180deg, rgba(3,5,10,.72), rgba(3,5,10,.92)), var(--photo, none); background-size:cover; background-position:center; opacity:1; z-index:0}
     .slide.has-photo > *:not(.photo-bg){position:relative; z-index:1}
-    .icon-circle{display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:16px; color:#04121A; background:linear-gradient(135deg, var(--brand), var(--accent-blue)); box-shadow:0 10px 24px rgba(21,252,175,.25)}
-    .icon-circle.small{width:32px; height:32px; border-radius:12px}
-    .icon-circle svg{width:22px; height:22px; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; fill:none}
-    .icon-circle.check{background:linear-gradient(135deg, var(--brand), var(--accent-blue)); color:#04121A}
-    .icon-circle.warn{background:linear-gradient(135deg, #f97316, #ef4444); color:#fff}
+    .icon-circle{display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:16px; color:#04121A; background:linear-gradient(135deg, var(--brand), var(--accent-blue)); box-shadow:0 10px 24px rgba(21,252,175,.25); font-weight:700}
+    .icon-circle.small{width:32px; height:32px; border-radius:12px; font-size:14px}
     .icon-circle.info{background:linear-gradient(135deg, var(--accent-blue), #7dd3fc); color:#04121A}
+    .icon-circle.warn{background:linear-gradient(135deg, #f97316, #ef4444); color:#fff}
     .card-with-icon{display:grid; gap:12px}
     .icon-list{display:grid; gap:12px; margin-top:12px}
     .icon-list li{padding-left:0; display:flex; gap:14px; align-items:flex-start}
@@ -1153,6 +1160,11 @@
       .summary-content p {
         font-size: 11px;
       }
+      .investment-layout{grid-template-columns:1fr; gap:16px}
+      .investment-table{padding:14px}
+      .investment-notes{gap:12px}
+      .note-card{padding:14px; border-radius:16px}
+      .note-card .icon-circle{width:32px; height:32px}
       /* Redes a gestionar responsive styles */
       .lead {
         font-size: 13px !important;
@@ -2035,13 +2047,93 @@
 
     /* Print-friendly (export a PDF con Ctrl/Cmd+P) */
     @media print{
-      body{background:white; color:#111827}
+      body{
+        background:#03050A !important;
+        color:#E6EDF8 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       header.topbar, .nav, .stepper{display:none !important}
-      .deck{padding:0}
-      .slide{box-shadow:none; border:1px solid #e5e7eb; break-inside:avoid; page-break-inside:avoid; margin:0 0 16px; color:#0F172A; background:white}
-      .slide::before, .slide::after{display:none}
-      h1,h2{color:#0F172A}
-      p.lead, li{color:#1F2937}
+      .deck{padding:0 !important; display:block !important}
+      .slide{
+        position:static !important;
+        width:auto !important;
+        min-height:auto !important;
+        margin:0 0 16px !important;
+        padding:36px 48px !important;
+        border-radius:28px !important;
+        border:none !important;
+        background:linear-gradient(160deg, rgba(16,28,41,.9), rgba(11,18,28,.96)) !important;
+        color:#F8FAFC !important;
+        box-shadow:0 24px 60px rgba(3,7,15,.45) !important;
+        opacity:1 !important;
+        transform:none !important;
+        pointer-events:auto !important;
+        display:block !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+        page-break-after:always;
+      }
+      .slide::before, .slide::after{display:none !important}
+      .slide.has-photo{
+        color:#F8FAFC !important;
+        background:linear-gradient(180deg, rgba(7,12,20,.88), rgba(7,12,20,.94)) !important;
+      }
+      .slide.has-photo .photo-bg{
+        position:relative !important;
+        inset:auto !important;
+        height:240px !important;
+        margin:-36px -48px 32px !important;
+        border-radius:28px 28px 0 0 !important;
+        background-size:cover !important;
+        background-position:center !important;
+        filter:none !important;
+        opacity:1 !important;
+      }
+      .slide.has-photo > *:not(.photo-bg){position:relative !important}
+      h1,h2{color:#F8FAFC !important}
+      p.lead, li{color:rgba(226,232,240,.9) !important}
+      .icon-circle, .icon-circle.small{
+        background:transparent !important;
+        border:1px solid rgba(148,163,184,.4) !important;
+        color:var(--brand) !important;
+        box-shadow:none !important;
+      }
+      .icon-circle.info{color:var(--accent-blue) !important}
+      .icon-circle.warn{color:#f97316 !important; border-color:#f97316 !important}
+      .badge{background:rgba(21,252,175,.18) !important; color:#F8FAFC !important; border:1px solid rgba(21,252,175,.35) !important}
+      .stat-card{
+        background:rgba(15,23,42,.88) !important;
+        border:1px solid rgba(148,163,184,.28) !important;
+        box-shadow:none !important;
+      }
+      table{background:rgba(15,23,42,.88) !important; border-color:rgba(148,163,184,.35) !important}
+      thead th{background:rgba(21,252,175,.22) !important; color:#04121A !important}
+      tbody tr:nth-child(odd){background:rgba(148,163,184,.14) !important}
+      tbody tr.summary-row{background:rgba(21,252,175,.3) !important; color:#04121A !important}
+      tbody tr.note-row{background:rgba(234,33,214,.24) !important; color:#04121A !important}
+      .cta-row .btn{background:transparent !important; border:1px solid rgba(148,163,184,.35) !important; color:#F8FAFC !important; box-shadow:none !important}
+      .cta-row .btn.primary{background:rgba(21,252,175,.18) !important; color:#04121A !important}
+      .bg-image{display:none !important}
+      a{color:var(--brand) !important; text-decoration:none !important}
+      .contact-card{
+        background:rgba(12,20,32,.9) !important;
+        border:1px solid rgba(148,163,184,.32) !important;
+        box-shadow:none !important;
+      }
+      .summary-card{
+        background:rgba(21,252,175,.18) !important;
+        border:1px solid rgba(21,252,175,.3) !important;
+        color:#04121A !important;
+      }
+      .summary-content p{color:#0B1626 !important}
+      .values-grid article strong{color:rgba(226,232,240,.7) !important}
+      .investment-layout{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) !important; gap:16px !important}
+      .investment-table{background:rgba(12,20,32,.85) !important; border:1px solid rgba(148,163,184,.3) !important; padding:16px !important}
+      .investment-notes{gap:12px !important}
+      .note-card{background:rgba(12,20,32,.9) !important; border:1px solid rgba(148,163,184,.32) !important; box-shadow:none !important; border-radius:18px !important}
+      .note-card strong{color:#F8FAFC !important}
+      .note-card p{color:rgba(226,232,240,.82) !important}
     }
   </style>
 </head>
@@ -2062,10 +2154,10 @@
       <div class="photo-bg" aria-hidden="true"></div>
 
       <!-- Logo Section -->
-      <div class="logo-container" style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(148,163,184,0.08);">
-        <img src="assets/wind-logo.png" alt="Wind Consulting" class="company-logo" style="height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: brightness(1.1);">
-        <div style="width: 2px; height: 32px; background: linear-gradient(135deg, var(--brand), var(--accent-blue)); border-radius: 1px;"></div>
-        <img src="assets/sapi-logo2.png" alt="SAPI Seguridad" class="company-logo" style="height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: brightness(1.1);">
+      <div class="logo-container" style="display: flex; align-items: center; justify-content: center; gap: 36px; margin-bottom: 26px; padding: 20px 28px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(148,163,184,0.12); box-shadow: 0 18px 40px rgba(3,10,20,0.35);">
+        <img src="assets/wind-logo.png" alt="Wind Consulting" class="company-logo" style="height: 72px; width: auto; max-width: 220px; object-fit: contain; filter: brightness(1.08);">
+        <div style="width: 3px; height: 64px; background: linear-gradient(135deg, var(--brand), var(--accent-blue)); border-radius: 2px; box-shadow: 0 6px 16px rgba(21,252,175,0.35);"></div>
+        <img src="assets/sapi-logo2.png" alt="SAPI Seguridad" class="company-logo" style="height: 72px; width: auto; max-width: 220px; object-fit: contain; filter: brightness(1.08);">
       </div>
 
       <span class="badge"><i></i>Propuesta de Servicios</span>
@@ -2816,7 +2908,7 @@
       <span class="badge"><i></i>Estrategia de crecimiento</span>
       <h2>Generación de Demanda</h2>
 
-      <div class="services-grid" style="margin: 16px 0; gap: 20px;">
+      <div class="services-grid" style="margin: 12px 0 18px; gap: 16px;">
         <div class="service-column">
           <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
             <div class="service-icon-main" style="width: 40px; height: 40px;">
@@ -3338,7 +3430,7 @@
         </div>
       </div>
 
-      <div style="background: linear-gradient(135deg, rgba(21,252,175,0.1), rgba(62,123,250,0.1)); border: 1px solid rgba(21,252,175,0.2); border-radius: 12px; padding: 16px; margin-top: 16px;">
+      <div style="background: linear-gradient(135deg, rgba(21,252,175,0.1), rgba(62,123,250,0.1)); border: 1px solid rgba(21,252,175,0.2); border-radius: 12px; padding: 14px; margin-top: 12px;">
         <div style="text-align: center; margin-bottom: 16px;">
           <h3 style="color: var(--brand); font-size: clamp(18px, 2.2vw, 24px); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Inversión Total Mensual</h3>
           <div id="slide14-inversion-total" style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(21,252,175,0.3);" data-costo-slide="slide14" data-costo-campo="inversionTotalMensual" data-costo-tipo="monto">30,000$ MXN</div>
@@ -3391,30 +3483,31 @@
         </div>
       </div>
 
-      <div class="contact-card" style="margin-top: 12px; max-width: 500px; padding: 16px 20px; gap: 12px;">
-        <div class="contact-row" style="gap: 12px; font-size: 13px;">
-          <div class="icon-circle" style="width: 32px; height: 32px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12,6 12,12 16,14"/>
+      <div class="investment-notes" style="margin-top: 14px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));">
+        <div class="note-card">
+          <span class="icon-circle info" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <line x1="12" y1="12" x2="12" y2="7"></line>
+              <line x1="12" y1="12" x2="15" y2="14"></line>
             </svg>
-          </div>
+          </span>
           <div>
-            <strong>Plazo de Implementación</strong><br>
-            <span>15 días hábiles después de proporcionar accesos y pagos iniciales</span>
+            <strong>Plazo de implementación</strong>
+            <p>15 días hábiles después de proporcionar accesos y pagos iniciales.</p>
           </div>
         </div>
-        <div class="contact-row" style="gap: 12px; font-size: 13px;">
-          <div class="icon-circle warn" style="width: 32px; height: 32px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+        <div class="note-card">
+          <span class="icon-circle warn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
               <line x1="12" y1="9" x2="12" y2="13"/>
               <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
-          </div>
+          </span>
           <div>
-            <strong>Nota Importante</strong><br>
-            <span>No incluye porcentaje de comisión por pagos publicitarios</span>
+            <strong>Nota importante</strong>
+            <p>No incluye porcentaje de comisión por pagos publicitarios; se factura por separado si aplica.</p>
           </div>
         </div>
       </div>
@@ -4301,274 +4394,31 @@
 
   <script src="costos.js"></script>
 
-  <!-- Librería para generar PDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
   <script>
-    // Función para generar PDF de toda la presentación
+    // Generar PDF delegando al flujo de impresión del navegador
     async function generarPDFPresentacion() {
-      try {
-        // Mostrar indicador de carga
-        const loadingOverlay = document.createElement('div');
-        loadingOverlay.id = 'pdf-loading-overlay';
-        loadingOverlay.innerHTML = `
-          <div style="
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            color: white;
-            font-size: 18px;
-            flex-direction: column;
-            gap: 20px;
-          ">
-            <div style="width: 50px; height: 50px; border: 4px solid var(--brand); border-top: 4px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-            Generando PDF de la presentación...
-          </div>
-          <style>
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          </style>
-        `;
-        document.body.appendChild(loadingOverlay);
+      const previo = window.location.hash;
+      const destino = '#slide-1';
 
-        // Desactivar temporalmente el sistema de costos para evitar errores CORS
-        const originalFetch = window.fetch;
-        window.fetch = function(...args) {
-          if (args[0] && args[0].includes('costos.json')) {
-            console.log('Bloqueando carga de costos.json durante generación de PDF');
-            return Promise.reject(new Error('Costos.json bloqueado durante PDF'));
-          }
-          return originalFetch.apply(this, args);
-        };
-
-        // Crear contenedor para el PDF
-        const pdfContainer = document.createElement('div');
-        pdfContainer.id = 'pdf-container';
-        pdfContainer.style.cssText = `
-          position: absolute;
-          top: -9999px;
-          left: -9999px;
-          width: 1920px;
-          height: 1080px;
-          background: white;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-        `;
-
-        // Clonar todas las slides
-        const slides = Array.from(document.querySelectorAll('.slide'));
-        slides.forEach((slide, index) => {
-          const slideClone = slide.cloneNode(true);
-
-          // Remover elementos interactivos
-          slideClone.querySelectorAll('.nav, .stepper, .topbar, [data-next], [data-prev]').forEach(el => {
-            if (el && el.parentNode) el.remove();
-          });
-
-          // Ajustar estilos para PDF
-          slideClone.style.cssText = `
-            position: relative;
-            width: 1920px;
-            height: 1080px;
-            margin: 0;
-            padding: 40px;
-            background: white !important;
-            color: black !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            page-break-inside: avoid;
-            page-break-after: always;
-            border: none;
-            box-shadow: none;
-            transform: none;
-            opacity: 1;
-            pointer-events: none;
-          `;
-
-          // Ajustar imágenes de fondo
-          slideClone.style.setProperty('--photo', 'none');
-          const photoBg = slideClone.querySelector('.photo-bg');
-          if (photoBg) {
-            photoBg.style.background = 'white';
-            photoBg.style.backgroundImage = 'none';
-          }
-
-          // Ajustar colores para PDF
-          slideClone.style.color = 'black';
-          slideClone.querySelectorAll('*').forEach(el => {
-            el.style.color = 'black';
-          });
-
-          // Ajustar fondos transparentes
-          slideClone.querySelectorAll('[style*="rgba"]').forEach(el => {
-            const style = el.getAttribute('style');
-            if (style) {
-              el.setAttribute('style', style.replace(/rgba\([^)]*\)/g, 'white'));
-            }
-          });
-
-          // Reemplazar imágenes con placeholders para evitar CORS y canvas tainted
-          slideClone.querySelectorAll('img').forEach(img => {
-            if (img.src && (img.src.startsWith('http') || img.src.startsWith('blob') || img.src.startsWith('data'))) {
-              img.style.display = 'none';
-              const placeholder = document.createElement('div');
-              placeholder.style.cssText = `
-                width: ${img.offsetWidth || 100}px;
-                height: ${img.offsetHeight || 100}px;
-                background: #f8f9fa;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-                color: #6c757d;
-                border: 1px solid #dee2e6;
-                border-radius: 4px;
-              `;
-              placeholder.textContent = 'Imagen';
-              if (img.parentNode) {
-                img.parentNode.replaceChild(placeholder, img);
-              }
-            }
-          });
-
-          // Remover también elementos con fondos que puedan causar problemas
-          slideClone.querySelectorAll('[style*="background-image"]').forEach(el => {
-            const style = el.getAttribute('style');
-            if (style && style.includes('url(')) {
-              el.style.backgroundImage = 'none';
-              el.style.backgroundColor = '#ffffff';
-            }
-          });
-
-          // Agregar número de slide
-          const slideNumber = document.createElement('div');
-          slideNumber.textContent = `Slide ${index + 1} de ${slides.length}`;
-          slideNumber.style.cssText = `
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 12px;
-            color: #666;
-            background: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-          `;
-          slideClone.appendChild(slideNumber);
-
-          pdfContainer.appendChild(slideClone);
-        });
-
-        document.body.appendChild(pdfContainer);
-
-        // Configuración del PDF con opciones para evitar errores CORS y canvas
-        const opt = {
-          margin: 0,
-          filename: 'Propuesta_SAPI_Seguridad_Wind_Consulting.pdf',
-          image: { type: 'jpeg', quality: 0.90 },
-          html2canvas: {
-            scale: 1,
-            useCORS: false,
-            allowTaint: false,
-            backgroundColor: '#ffffff',
-            width: 1920,
-            height: 1080,
-            logging: false,
-            imageTimeout: 0,
-            removeContainer: true,
-            foreignObjectRendering: false,
-            windowWidth: 1920,
-            windowHeight: 1080
-          },
-          jsPDF: {
-            unit: 'px',
-            format: [1920, 1080],
-            orientation: 'landscape',
-            compress: true
-          }
-        };
-
-        // Restaurar fetch original
-        window.fetch = originalFetch;
-
-        // Generar PDF
-        await html2pdf().set(opt).from(pdfContainer).save();
-
-        // Limpiar
-        if (pdfContainer && pdfContainer.parentNode) {
-          document.body.removeChild(pdfContainer);
-        }
-        if (loadingOverlay && loadingOverlay.parentNode) {
-          document.body.removeChild(loadingOverlay);
-        }
-
-        // Mostrar mensaje de éxito
-        const successMsg = document.createElement('div');
-        successMsg.id = 'pdf-success-message';
-        successMsg.innerHTML = `
-          <div style="
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, var(--brand), var(--accent-blue));
-            color: white;
-            padding: 20px 40px;
-            border-radius: 12px;
-            text-align: center;
-            z-index: 10000;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-          ">
-            <h3 style="margin: 0 0 10px 0;">¡PDF Generado Exitosamente!</h3>
-            <p style="margin: 0; font-size: 14px;">La presentación completa ha sido descargada como PDF.</p>
-          </div>
-        `;
-        document.body.appendChild(successMsg);
-
-        setTimeout(() => {
-          if (successMsg && successMsg.parentNode) {
-            document.body.removeChild(successMsg);
-          }
-        }, 3000);
-
-      } catch (error) {
-        console.error('Error generando PDF:', error);
-
-        // Restaurar fetch original en caso de error
-        window.fetch = originalFetch;
-
-        // Limpiar loading si hay error
-        const loadingOverlay = document.getElementById('pdf-loading-overlay');
-        if (loadingOverlay && loadingOverlay.parentNode) {
-          document.body.removeChild(loadingOverlay);
-        }
-
-        // Limpiar contenedor si existe
-        const pdfContainer = document.getElementById('pdf-container');
-        if (pdfContainer && pdfContainer.parentNode) {
-          document.body.removeChild(pdfContainer);
-        }
-
-        // Mostrar error
-        alert('Error al generar el PDF. Por favor, inténtalo de nuevo.');
+      if (previo !== destino) {
+        window.location.hash = destino;
       }
+
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      window.print();
+
+      setTimeout(() => {
+        if (previo && previo !== destino) {
+          window.location.hash = previo;
+        }
+      }, 200);
     }
 
     // Modificar el botón de imprimir para generar PDF
     document.addEventListener('DOMContentLoaded', function() {
-      const printBtn = document.querySelector('button[onclick="window.print()"]');
+      const printBtn = document.getElementById('pdf-download-btn');
       if (printBtn) {
-        printBtn.textContent = 'Descargar PDF';
         printBtn.onclick = generarPDFPresentacion;
         printBtn.title = 'Descargar toda la presentación como PDF';
       }
@@ -4576,13 +4426,6 @@
       // Verificar que la función de PDF esté disponible
       if (typeof generarPDFPresentacion === 'function') {
         console.log('✅ Función de PDF cargada correctamente');
-      }
-
-      // Verificar que html2pdf esté cargado
-      if (typeof html2pdf !== 'undefined') {
-        console.log('✅ Librería html2pdf cargada correctamente');
-      } else {
-        console.warn('⚠️ Librería html2pdf no disponible');
       }
     });
 
