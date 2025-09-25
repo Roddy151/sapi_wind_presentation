@@ -126,6 +126,68 @@
     .slide[data-title="Responsabilidades Medios 2"] .lead {
       margin-bottom: 8px;
     }
+
+    /* Slide 16 screen fit optimization */
+    .slide[data-title="Creación de Ads"] {
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .slide[data-title="Creación de Ads"] .services-grid {
+      margin: 12px 0;
+      gap: 16px;
+    }
+    .slide[data-title="Creación de Ads"] .strategy-summary {
+      margin-top: 12px;
+    }
+
+    /* Slide 18 screen fit optimization */
+    .slide[data-title="Responsabilidades Ads"] {
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .slide[data-title="Responsabilidades Ads"] .responsibilities-grid {
+      margin: 8px 0;
+      gap: 16px;
+    }
+    .slide[data-title="Responsabilidades Ads"] .lead {
+      margin-bottom: 8px;
+    }
+
+    /* Slide 19 screen fit optimization */
+    .slide[data-title="Presupuesto de servicios"] {
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .slide[data-title="Presupuesto de servicios"] .services-grid {
+      margin: 12px 0;
+      gap: 16px;
+    }
+    .slide[data-title="Presupuesto de servicios"] .strategy-summary {
+      margin-top: 12px;
+    }
+    .slide[data-title="Presupuesto de servicios"] .contact-card {
+      margin-top: 12px;
+    }
+
+    /* Slide 20 screen fit optimization */
+    .slide[data-title="Casos de éxito"] {
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .slide[data-title="Casos de éxito"] .services-grid {
+      margin: 12px 0;
+      gap: 16px;
+    }
+    .slide[data-title="Casos de éxito"] .strategy-summary {
+      margin-top: 12px;
+    }
+    .slide[data-title="Casos de éxito"] .lead {
+      margin-bottom: 12px;
+    }
     ul{margin: 6px 0 0; padding:0; list-style:none; display:grid; gap:12px; max-width:800px}
     ul li{position:relative; padding-left:26px; color: rgba(226,232,240,.85)}
     ul li::before{content:''; position:absolute; left:0; top:.55em; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--accent-magenta)); box-shadow:0 0 0 4px rgba(21,252,175,.12)}
@@ -1073,6 +1135,270 @@
       }
       .slide[data-title="Responsabilidades Medios 2"] .responsibility-list span {
         font-size: 12px;
+        line-height: 1.2;
+      }
+      /* Slide 16 responsive styles */
+      .slide[data-title="Creación de Ads"] {
+        padding: 10px !important;
+        max-height: calc(100vh - 120px) !important;
+      }
+      .slide[data-title="Creación de Ads"] .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 8px 0;
+      }
+      .slide[data-title="Creación de Ads"] .service-header-aligned {
+        gap: 8px;
+        padding: 10px;
+        margin-bottom: 8px;
+      }
+      .slide[data-title="Creación de Ads"] .service-icon-main {
+        width: 32px;
+        height: 32px;
+      }
+      .slide[data-title="Creación de Ads"] .service-icon-main svg {
+        width: 16px;
+        height: 16px;
+      }
+      .slide[data-title="Creación de Ads"] .service-header-aligned h3 {
+        font-size: 16px;
+      }
+      .slide[data-title="Creación de Ads"] .lead {
+        font-size: 12px !important;
+        margin-bottom: 8px !important;
+      }
+      .slide[data-title="Creación de Ads"] .balanced-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+      .slide[data-title="Creación de Ads"] .icon-list.balanced li {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .slide[data-title="Creación de Ads"] .icon-list.balanced span {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+      .slide[data-title="Creación de Ads"] .strategy-summary {
+        margin-top: 8px;
+      }
+      .slide[data-title="Creación de Ads"] .summary-card {
+        padding: 10px;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .slide[data-title="Creación de Ads"] .summary-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .slide[data-title="Creación de Ads"] .summary-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+      .slide[data-title="Creación de Ads"] .summary-content h4 {
+        font-size: 12px;
+      }
+      .slide[data-title="Creación de Ads"] .summary-content p {
+        font-size: 10px;
+        line-height: 1.2;
+      }
+      /* Slide 18 responsive styles */
+      .slide[data-title="Responsabilidades Ads"] {
+        padding: 10px !important;
+        max-height: calc(100vh - 120px) !important;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibilities-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 6px 0;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibility-category {
+        padding: 12px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .category-header {
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .category-icon {
+        width: 32px;
+        height: 32px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .category-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .category-header h3 {
+        font-size: 14px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibility-list li {
+        padding: 8px 10px;
+        gap: 8px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibility-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibility-icon svg {
+        width: 10px;
+        height: 10px;
+      }
+      .slide[data-title="Responsabilidades Ads"] .lead {
+        font-size: 11px !important;
+        margin-bottom: 6px !important;
+      }
+      .slide[data-title="Responsabilidades Ads"] .responsibility-list span {
+        font-size: 12px;
+        line-height: 1.2;
+      }
+      /* Slide 19 responsive styles */
+      .slide[data-title="Presupuesto de servicios"] {
+        padding: 10px !important;
+        max-height: calc(100vh - 120px) !important;
+      }
+      .slide[data-title="Presupuesto de servicios"] .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 8px 0;
+      }
+      .slide[data-title="Presupuesto de servicios"] .service-header-aligned {
+        gap: 8px;
+        padding: 10px;
+        margin-bottom: 8px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .service-icon-main {
+        width: 32px;
+        height: 32px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .service-icon-main svg {
+        width: 16px;
+        height: 16px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .service-header-aligned h3 {
+        font-size: 16px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .lead {
+        font-size: 12px !important;
+        margin-bottom: 8px !important;
+      }
+      .slide[data-title="Presupuesto de servicios"] .balanced-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .icon-list.balanced li {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .icon-list.balanced span {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+      .slide[data-title="Presupuesto de servicios"] .strategy-summary {
+        margin-top: 8px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .summary-card {
+        padding: 10px;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .slide[data-title="Presupuesto de servicios"] .summary-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .summary-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .summary-content h4 {
+        font-size: 12px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .summary-content p {
+        font-size: 10px;
+        line-height: 1.2;
+      }
+      .slide[data-title="Presupuesto de servicios"] .contact-card {
+        max-width: 100%;
+        margin-top: 8px;
+        padding: 12px 16px;
+        gap: 10px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .contact-row {
+        gap: 10px;
+        font-size: 12px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .icon-circle {
+        width: 28px;
+        height: 28px;
+      }
+      .slide[data-title="Presupuesto de servicios"] .icon-circle svg {
+        width: 14px;
+        height: 14px;
+      }
+      /* Slide 20 responsive styles */
+      .slide[data-title="Casos de éxito"] {
+        padding: 10px !important;
+        max-height: calc(100vh - 120px) !important;
+      }
+      .slide[data-title="Casos de éxito"] .services-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 8px 0;
+      }
+      .slide[data-title="Casos de éxito"] .service-header-aligned {
+        gap: 8px;
+        padding: 10px;
+        margin-bottom: 8px;
+      }
+      .slide[data-title="Casos de éxito"] .service-icon-main {
+        width: 32px;
+        height: 32px;
+      }
+      .slide[data-title="Casos de éxito"] .service-icon-main svg {
+        width: 16px;
+        height: 16px;
+      }
+      .slide[data-title="Casos de éxito"] .service-header-aligned h3 {
+        font-size: 16px;
+      }
+      .slide[data-title="Casos de éxito"] .lead {
+        font-size: 12px !important;
+        margin-bottom: 8px !important;
+      }
+      .slide[data-title="Casos de éxito"] .balanced-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+      .slide[data-title="Casos de éxito"] .icon-list.balanced li {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .slide[data-title="Casos de éxito"] .icon-list.balanced span {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+      .slide[data-title="Casos de éxito"] .strategy-summary {
+        margin-top: 8px;
+      }
+      .slide[data-title="Casos de éxito"] .summary-card {
+        padding: 10px;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .slide[data-title="Casos de éxito"] .summary-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .slide[data-title="Casos de éxito"] .summary-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+      .slide[data-title="Casos de éxito"] .summary-content h4 {
+        font-size: 12px;
+      }
+      .slide[data-title="Casos de éxito"] .summary-content p {
+        font-size: 10px;
         line-height: 1.2;
       }
     }
@@ -2232,169 +2558,561 @@
     <section class="slide" data-title="Creación de Ads">
       <span class="badge"><i></i>Creación de Ads</span>
       <h2>Creación de Ads</h2>
-      <p class="lead">Nos encargamos de la planificación y gestión de la compra de espacios publicitarios en los distintos canales de comunicación digitales de modo que puedas dar a conocer tu producto o servicio, con una inversión considerablemente menor que en medios tradicionales.</p>
-      <p class="lead">Obteniendo resultados medibles de impacto para tu negocio y útiles para la optimización de la estrategia.</p>
-    </section>
+      <p class="lead" style="margin-bottom: 12px; font-size: 14px;">Nos encargamos de la planificación y gestión de la compra de espacios publicitarios en los distintos canales de comunicación digitales de modo que puedas dar a conocer tu producto o servicio, con una inversión considerablemente menor que en medios tradicionales.</p>
 
-    <!-- SLIDE 17: Alcance Ads -->
-    <section class="slide" data-title="Alcance Ads">
-      <span class="badge"><i></i>Alcance del servicio</span>
-      <h2>Alcance del Servicio</h2>
-      <p class="lead">Nuestro servicio de creación de anuncios digitales abarca desde la estrategia hasta la optimización continua del rendimiento.</p>
-
-      <div class="grid cols-2">
-        <div class="card-with-icon">
-          <div class="service-header">
-            <div class="service-icon-main">
+      <div class="services-grid" style="margin: 16px 0; gap: 20px;">
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
+            <div class="service-icon-main" style="width: 40px; height: 40px;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="23,7 16,12 23,17 23,7"/>
                 <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
               </svg>
             </div>
-            <h3>Servicios Incluidos</h3>
-            <p class="service-subtitle">Proceso completo de creación y gestión de anuncios</p>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios Incluidos</h3>
           </div>
-          <ul class="icon-list enhanced">
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Análisis detallado del público objetivo y sus comportamientos</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Desarrollo de lineamientos gráficos y editoriales consistentes</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Creación de visuales atractivos y textos persuasivos</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Lanzamiento en plataformas siguiendo mejores prácticas</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Monitoreo continuo del rendimiento y optimización</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Análisis del rendimiento del contenido orgánico</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Generación de identidad visual para campañas</span>
-            </li>
-            <li>
-              <div class="enhanced-icon check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20,6 9,17 4,12"></polyline>
-                </svg>
-              </div>
-              <span>Community Management profesional</span>
-            </li>
-          </ul>
+          <div class="services-content">
+            <ul class="icon-list balanced" style="gap: 8px;">
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Análisis detallado del público objetivo y sus comportamientos</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Desarrollo de lineamientos gráficos y editoriales consistentes</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Creación de visuales atractivos y textos persuasivos</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Lanzamiento en plataformas siguiendo mejores prácticas</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Monitoreo continuo del rendimiento y optimización</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card-with-icon">
-          <div class="service-header">
-            <div class="service-icon-main excluded">
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
+            <div class="service-icon-main excluded" style="width: 40px; height: 40px;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/>
                 <line x1="15" y1="9" x2="9" y2="15"></line>
                 <line x1="9" y1="9" x2="15" y2="15"></line>
               </svg>
             </div>
-            <h3>Servicios Excluidos</h3>
-            <p class="service-subtitle">Limitaciones del alcance del servicio</p>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios Excluidos</h3>
           </div>
-          <ul class="icon-list enhanced">
-            <li>
-              <div class="enhanced-icon cross">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </div>
-              <span>Duración inicial del contrato de servicios</span>
-            </li>
-            <li>
-              <div class="enhanced-icon cross">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </div>
-              <span>Revisión y ajuste del plan estratégico</span>
-            </li>
-            <li>
-              <div class="enhanced-icon cross">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </div>
-              <span>Tiempo y recursos adicionales no presupuestados</span>
-            </li>
-          </ul>
+          <div class="services-content">
+            <ul class="icon-list balanced" style="gap: 8px;">
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon cross" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Análisis del rendimiento del contenido orgánico en redes sociales</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon cross" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Generación de la identidad visual </span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon cross" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Community Management</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+
+      <div class="strategy-summary" style="margin-top: 12px;">
+        <div class="summary-card" style="padding: 12px; gap: 10px; max-width: 500px;">
+          <div class="summary-icon" style="width: 32px; height: 32px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div class="summary-content">
+            <h4 style="font-size: 14px; margin: 0 0 4px 0;">Resultados Medibles</h4>
+            <p style="font-size: 11px; margin: 0; line-height: 1.3;">Obteniendo resultados medibles de impacto para tu negocio y útiles para la optimización de la estrategia publicitaria.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background decorative images -->
+      <div class="slide-bg-images">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&crop=center" alt="Digital Advertising" class="bg-image bg-image-1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=150&h=150&fit=crop&crop=center" alt="Campaign Creation" class="bg-image bg-image-2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=180&h=180&fit=crop&crop=center" alt="Marketing Strategy" class="bg-image bg-image-3" loading="lazy">
+      </div>
     </section>
+
 
     <!-- SLIDE 18: Responsabilidades Ads -->
     <section class="slide" data-title="Responsabilidades Ads">
       <span class="badge"><i></i>Responsabilidades del cliente</span>
       <h2>Responsabilidades del Cliente</h2>
-      <ul class="icon-list">
-        <li><span class="icon-circle" aria-hidden="true">🛡️</span><span>Permiso de Administrador de anuncios de Facebook.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">📚</span><span>Manual de identidad corporativa, logotipos en curvas, fuentes tipográficas y material fotográfico.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">🎬</span><span>URL del video a promocionar dentro de la red.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">🔑</span><span>Permiso de administración en la cuenta publicitaria y método de pago.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">📌</span><span>Acceso para el pixel y el tag de conversiones como administradores.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">🧩</span><span>Tag Manager de la agencia dentro de la página web.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">📈</span><span>Analytics instalado y acceso a la cuenta.</span></li>
-        <li><span class="icon-circle" aria-hidden="true">🆔</span><span>Merchant ID.</span></li>
-      </ul>
+      <p class="lead">Para garantizar el éxito de nuestras campañas publicitarias digitales, es fundamental que el cliente proporcione los siguientes elementos y accesos necesarios para la gestión óptima de los anuncios.</p>
+
+      <div class="responsibilities-grid">
+        <div class="responsibility-category">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3>Acceso a Plataformas</h3>
+          </div>
+          <ul class="responsibility-list">
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Permiso de Administrador de anuncios de Facebook</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Permiso de administración en la cuenta publicitaria</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Acceso para el pixel y el tag de conversiones como administradores</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Analytics instalado y acceso a la cuenta</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="responsibility-category">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10,9 9,9 8,9"/>
+              </svg>
+            </div>
+            <h3>Activos Digitales</h3>
+          </div>
+          <ul class="responsibility-list">
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Manual de identidad corporativa, logotipos en curvas y fuentes tipográficas</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Material fotográfico de productos y servicios</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>URL del video a promocionar dentro de la red</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="responsibility-category">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3>Configuración Técnica</h3>
+          </div>
+          <ul class="responsibility-list">
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Tag Manager de la agencia dentro de la página web</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Método de pago registrado en la cuenta publicitaria</span>
+            </li>
+            <li>
+              <div class="responsibility-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              <span>Merchant ID para campañas de shopping</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Background decorative images -->
+      <div class="slide-bg-images">
+        <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=200&h=200&fit=crop&crop=center" alt="Platform Access" class="bg-image bg-image-1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=center" alt="Digital Assets" class="bg-image bg-image-2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=180&h=180&fit=crop&crop=center" alt="Technical Setup" class="bg-image bg-image-3" loading="lazy">
+      </div>
     </section>
 
     <!-- SLIDE 19: Presupuesto de servicios -->
     <section class="slide" data-title="Presupuesto de servicios">
       <span class="badge"><i></i>Presupuesto de servicios</span>
       <h2>Presupuesto de Servicios</h2>
-      <table aria-label="Presupuesto de servicios" id="services-budget"></table>
-      <p class="lead" style="margin-top:16px">*SE REQUIEREN 15 DÍAS PARA INICIAR LA OPERACIÓN LUEGO DE PROPORCIONADOS ACCESOS Y LOS PAGOS DE INICIO.<br>*NO INCLUYE % DE COMISIÓN POR PAGOS.</p>
+      <p class="lead" style="margin-bottom: 12px; font-size: 14px;">Inversión estratégica diseñada para maximizar el retorno en la captación de talento y posicionamiento digital de SAPI Seguridad, con servicios especializados y optimización continua de campañas.</p>
+
+      <div class="services-grid" style="margin: 16px 0; gap: 20px;">
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
+            <div class="service-icon-main" style="width: 40px; height: 40px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios Recurrentes</h3>
+          </div>
+          <div class="services-content">
+            <ul class="icon-list balanced" style="gap: 8px;">
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Contenido para RRSS: 7,000 MXN mensuales</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Gestión de Ads Digitales: 9,000 MXN mensuales</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Optimización continua y reportes mensuales</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Soporte técnico y estratégico permanente</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 12px; padding: 12px;">
+            <div class="service-icon-main" style="width: 40px; height: 40px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Servicios de Inicio</h3>
+          </div>
+          <div class="services-content">
+            <ul class="icon-list balanced" style="gap: 8px;">
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Creación de Ads inicial: 14,000 MXN (bajo demanda)</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Setup inicial de campañas: 9,000 MXN</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Configuración de tracking y analytics</span>
+              </li>
+              <li style="padding: 8px 10px;">
+                <div class="balanced-icon check" style="width: 18px; height: 18px; margin-right: 10px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Auditoría inicial de plataformas digitales</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: linear-gradient(135deg, rgba(21,252,175,0.1), rgba(62,123,250,0.1)); border: 1px solid rgba(21,252,175,0.2); border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <h3 style="color: var(--brand); font-size: clamp(18px, 2.2vw, 24px); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Inversión Total Mensual</h3>
+          <div style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(21,252,175,0.3);">16,000$ MXN</div>
+          <p style="color: rgba(226,232,240,0.8); font-size: 12px; margin: 4px 0 0 0;">Para servicios recurrentes de gestión y optimización</p>
+        </div>
+        <div style="text-align: center; margin-bottom: 12px;">
+          <h3 style="color: var(--brand); font-size: clamp(16px, 2vw, 20px); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Inversión Inicial</h3>
+          <div style="font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(21,252,175,0.3);">30,000$ MXN</div>
+          <p style="color: rgba(226,232,240,0.8); font-size: 12px; margin: 4px 0 0 0;">Setup inicial + primer mes de servicios</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="color: var(--accent-magenta); font-size: clamp(16px, 2vw, 20px); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Inversión de Medios</h3>
+          <div style="font-size: clamp(20px, 2.5vw, 30px); font-weight: 700; color: #F8FAFC; text-shadow: 0 0 20px rgba(234,33,214,0.3);">30,000$ MXN</div>
+          <p style="color: rgba(226,232,240,0.8); font-size: 12px; margin: 4px 0 0 0;">Presupuesto sugerido para campañas publicitarias</p>
+        </div>
+      </div>
+
+      <div class="strategy-summary" style="margin-top: 12px;">
+        <div class="summary-card" style="padding: 12px; gap: 10px; max-width: 500px;">
+          <div class="summary-icon" style="width: 32px; height: 32px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div class="summary-content">
+            <h4 style="font-size: 14px; margin: 0 0 4px 0;">Total Primera Inversión</h4>
+            <p style="font-size: 11px; margin: 0; line-height: 1.3;">46,000 MXN para lanzamiento completo incluyendo setup inicial, primer mes de servicios y presupuesto de medios sugerido.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card" style="margin-top: 12px; max-width: 500px; padding: 16px 20px; gap: 12px;">
+        <div class="contact-row" style="gap: 12px; font-size: 13px;">
+          <div class="icon-circle" style="width: 32px; height: 32px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Plazo de Implementación</strong><br>
+            <span>15 días hábiles después de proporcionar accesos y pagos iniciales</span>
+          </div>
+        </div>
+        <div class="contact-row" style="gap: 12px; font-size: 13px;">
+          <div class="icon-circle warn" style="width: 32px; height: 32px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Información Adicional</strong><br>
+            <span>No incluye porcentaje de comisión por pagos publicitarios. Precios en MXN más IVA.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background decorative images -->
+      <div class="slide-bg-images">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&crop=center" alt="Budget Planning" class="bg-image bg-image-1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=150&h=150&fit=crop&crop=center" alt="Financial Strategy" class="bg-image bg-image-2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=180&h=180&fit=crop&crop=center" alt="Investment Planning" class="bg-image bg-image-3" loading="lazy">
+      </div>
     </section>
 
     <!-- SLIDE 20: Casos de éxito intro -->
-    <section class="slide section-divider" data-title="Casos de éxito">
+    <section class="slide" data-title="Casos de éxito">
       <span class="badge"><i></i>Casos de éxito</span>
-      <h2>Casos de éxito</h2>
+      <h2>Casos de Éxito</h2>
+      <p class="lead" style="margin-bottom: 16px; font-size: 14px;">Descubre cómo hemos transformado empresas del sector seguridad a través de estrategias digitales probadas. Cada caso representa meses de trabajo colaborativo, optimización continua y resultados medibles que han impulsado el crecimiento de nuestros clientes.</p>
+
+      <div class="services-grid" style="margin: 20px 0; gap: 24px;">
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 16px; padding: 14px;">
+            <div class="service-icon-main" style="width: 44px; height: 44px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Casos Destacados</h3>
+          </div>
+          <div class="services-content">
+            <ul class="icon-list balanced" style="gap: 10px;">
+              <li style="padding: 10px 12px;">
+                <div class="balanced-icon check" style="width: 20px; height: 20px; margin-right: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">ROI promedio superior al 1,300% en campañas digitales</span>
+              </li>
+              <li style="padding: 10px 12px;">
+                <div class="balanced-icon check" style="width: 20px; height: 20px; margin-right: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Generación de más de 10,000 leads cualificados mensuales</span>
+              </li>
+              <li style="padding: 10px 12px;">
+                <div class="balanced-icon check" style="width: 20px; height: 20px; margin-right: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Optimización de presupuestos hasta en un 50%</span>
+              </li>
+              <li style="padding: 10px 12px;">
+                <div class="balanced-icon check" style="width: 20px; height: 20px; margin-right: 12px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                  </svg>
+                </div>
+                <span style="font-size: 13px;">Crecimiento sostenible en canales digitales</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-column">
+          <div class="service-header-aligned" style="margin-bottom: 16px; padding: 14px;">
+            <div class="service-icon-main" style="width: 44px; height: 44px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 style="font-size: clamp(18px, 2.2vw, 24px);">Métricas de Impacto</h3>
+          </div>
+          <div class="services-content">
+            <div style="display: grid; gap: 12px; margin-bottom: 16px;">
+              <div style="background: linear-gradient(135deg, rgba(21,252,175,0.08), rgba(62,123,250,0.08)); border: 1px solid rgba(21,252,175,0.2); border-radius: 10px; padding: 12px; text-align: center;">
+                <div style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--brand); margin-bottom: 4px;">+10,000</div>
+                <div style="font-size: 12px; color: rgba(226,232,240,0.8); text-transform: uppercase; letter-spacing: 0.08em;">Leads Mensuales</div>
+              </div>
+              <div style="background: linear-gradient(135deg, rgba(21,252,175,0.08), rgba(62,123,250,0.08)); border: 1px solid rgba(21,252,175,0.2); border-radius: 10px; padding: 12px; text-align: center;">
+                <div style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--accent-magenta); margin-bottom: 4px;">1,300%</div>
+                <div style="font-size: 12px; color: rgba(226,232,240,0.8); text-transform: uppercase; letter-spacing: 0.08em;">ROAS Promedio</div>
+              </div>
+              <div style="background: linear-gradient(135deg, rgba(21,252,175,0.08), rgba(62,123,250,0.08)); border: 1px solid rgba(21,252,175,0.2); border-radius: 10px; padding: 12px; text-align: center;">
+                <div style="font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: var(--accent-blue); margin-bottom: 4px;">50%</div>
+                <div style="font-size: 12px; color: rgba(226,232,240,0.8); text-transform: uppercase; letter-spacing: 0.08em;">Ahorro en Presupuesto</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: linear-gradient(135deg, rgba(21,252,175,0.1), rgba(62,123,250,0.1)); border: 1px solid rgba(21,252,175,0.2); border-radius: 12px; padding: 16px; margin: 16px 0;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <h3 style="color: var(--brand); font-size: clamp(18px, 2.2vw, 24px); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.08em;">Resultados Comprobados</h3>
+          <p style="color: rgba(226,232,240,0.9); font-size: 13px; margin: 0; line-height: 1.4;">Cada caso de éxito representa una colaboración estratégica que ha generado crecimiento real y medible para empresas del sector seguridad en México.</p>
+        </div>
+      </div>
+
+      <div class="strategy-summary" style="margin-top: 16px;">
+        <div class="summary-card" style="padding: 14px; gap: 12px; max-width: 600px;">
+          <div class="summary-icon" style="width: 36px; height: 36px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="summary-content">
+            <h4 style="font-size: 16px; margin: 0 0 6px 0;">4 Casos de Éxito Relevantes</h4>
+            <p style="font-size: 12px; margin: 0; line-height: 1.4;">Historias reales de transformación digital en el sector seguridad, con métricas específicas y estrategias probadas que puedes replicar en tu negocio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background decorative images -->
+      <div class="slide-bg-images">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&crop=center" alt="Success Stories" class="bg-image bg-image-1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=150&h=150&fit=crop&crop=center" alt="Growth Metrics" class="bg-image bg-image-2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=180&h=180&fit=crop&crop=center" alt="Business Success" class="bg-image bg-image-3" loading="lazy">
+      </div>
     </section>
 
     <!-- SLIDES 21-24: Casos -->
