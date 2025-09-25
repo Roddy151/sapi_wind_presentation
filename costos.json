@@ -1,42 +1,42 @@
 {
   "slides": {
     "slide14": {
-       "title": "Inversión medios",
-       "inversionTotalMensual": 30000,
-       "leadsEsperados": 2000,
-       "costoPorLead": 15,
-       "distribucion": {
-         "facebook": {
-           "inversion": 15000,
-           "leads": 1000,
-           "cpl": 15,
-           "descripcion": "Mayor alcance en audiencias específicas",
-           "alcance": 150000,
-           "ctr": 2.5,
-           "conversion": 0.67
-         },
-         "instagram": {
-           "inversion": 15000,
-           "leads": 1000,
-           "cpl": 15,
-           "descripcion": "Contenido visual atractivo para engagement",
-           "alcance": 120000,
-           "ctr": 3.2,
-           "conversion": 0.83
-         }
-       },
-       "optimizacion": {
-         "segmentacion": "Ubicación geográfica y demográfica",
-         "mejora": "Mejora continua basada en datos reales"
-       }
-     },
+      "title": "Inversión medios",
+      "inversionTotalMensual": 15000,
+      "leadsEsperados": 1000,
+      "costoPorLead": 15,
+      "distribucion": {
+        "facebook": {
+          "inversion": 7500,
+          "leads": 500,
+          "cpl": 15,
+          "descripcion": "Mayor alcance en audiencias específicas",
+          "alcance": 75000,
+          "ctr": 2.5,
+          "conversion": 0.67
+        },
+        "instagram": {
+          "inversion": 7500,
+          "leads": 500,
+          "cpl": 15,
+          "descripcion": "Contenido visual atractivo para engagement",
+          "alcance": 60000,
+          "ctr": 3.2,
+          "conversion": 0.83
+        }
+      },
+      "optimizacion": {
+        "segmentacion": "Ubicación geográfica y demográfica",
+        "mejora": "Mejora continua basada en datos reales"
+      }
+    },
     "slide19": {
       "title": "Presupuesto de servicios",
       "servicios": {
         "contenidoRRSS": {
           "nombre": "Contenido para RRSS",
           "costoInicio": 7000,
-          "costoMensual": 9500,
+          "costoMensual": 7000,
           "entregables": "4 imágenes fijas, 2 carruseles y 2 videos"
         },
         "creacionAds": {
@@ -48,17 +48,17 @@
         },
         "gestionAds": {
           "nombre": "Gestión de Ads Digitales",
-          "costoMensual": 12500,
+          "costoMensual": 9000,
           "costoSetup": 9000,
-          "comision": 0.30,
+          "comision": 0.3,
           "entregables": "Planificación y gestión de campañas en Google Search y Facebook Ads"
         }
       },
       "totales": {
-        "inversionMensual": 22000,
+        "inversionMensual": 16000,
         "inversionInicial": 30000,
-        "inversionMedios": 30000,
-        "primeraInversion": 52000
+        "inversionMedios": 15000,
+        "primeraInversion": 31000
       },
       "notas": {
         "comision": "No incluye porcentaje de comisión por pagos publicitarios",
