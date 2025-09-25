@@ -27,22 +27,7 @@ class CostosManager {
       return true;
     } catch (error) {
       console.error('Error al cargar datos de costos:', error);
-
-      let dataFallback = null;
-      if (this.puedeUsarFileSystemAccess()) {
-        dataFallback = await this.cargarDatosDesdeFileSystem(true);
-      }
-
-      if (dataFallback) {
-        const firmaOriginal = this.obtenerDataSignature(dataFallback);
-        this.data = dataFallback;
-        this.recalcularDerivados();
-        this.lastDataSignature = firmaOriginal;
-        this.loaded = true;
-        console.log('Datos de costos cargados desde selección manual');
-        return true;
-      }
-
+      console.info('Sugerencia: sirve el proyecto con http://localhost o ejecuta Costos.seleccionarArchivoManual() después de una interacción de usuario.');
       return false;
     }
   }
@@ -118,15 +103,17 @@ class CostosManager {
     } catch (error) {
       console.warn('No se pudo refrescar costos.json automáticamente:', error);
 
-      const dataFallback = await this.cargarDatosDesdeFileSystem();
-      if (dataFallback) {
-        const nuevaFirma = this.obtenerDataSignature(dataFallback);
-        if (nuevaFirma && nuevaFirma !== this.lastDataSignature) {
-          this.data = dataFallback;
-          this.recalcularDerivados();
-          this.lastDataSignature = nuevaFirma;
-          this.actualizarElementosConDatos();
-          console.info('[Costos] Datos actualizados desde el sistema de archivos');
+      if (this.fileHandle) {
+        const dataFallback = await this.cargarDatosDesdeFileSystem();
+        if (dataFallback) {
+          const nuevaFirma = this.obtenerDataSignature(dataFallback);
+          if (nuevaFirma && nuevaFirma !== this.lastDataSignature) {
+            this.data = dataFallback;
+            this.recalcularDerivados();
+            this.lastDataSignature = nuevaFirma;
+            this.actualizarElementosConDatos();
+            console.info('[Costos] Datos actualizados desde el sistema de archivos');
+          }
         }
       }
     } finally {
@@ -448,6 +435,28 @@ const Costos = {
       return;
     }
     await this.manager.verificarActualizacionesRemotas();
+  },
+
+  async seleccionarArchivoManual() {
+    if (!this.manager.puedeUsarFileSystemAccess()) {
+      console.warn('[Costos] El navegador no soporta File System Access API en este contexto.');
+      return false;
+    }
+
+    const data = await this.manager.cargarDatosDesdeFileSystem(true);
+    if (!data) {
+      console.warn('[Costos] No se seleccionó ningún archivo de costos.');
+      return false;
+    }
+
+    this.manager.data = data;
+    this.manager.recalcularDerivados();
+    this.manager.lastDataSignature = this.manager.obtenerDataSignature(data);
+    this.manager.loaded = true;
+    this.manager.configurarActualizacionesAutomaticas();
+    this.manager.iniciarAutoRefresh();
+    console.info('[Costos] Datos de costos cargados manualmente');
+    return true;
   },
 
   // Obtener datos formateados
