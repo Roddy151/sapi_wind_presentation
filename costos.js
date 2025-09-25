@@ -36,6 +36,57 @@ class CostosManager {
     return monto;
   }
 
+  formatearNumero(valor) {
+    if (typeof valor === 'number') {
+      return valor.toLocaleString('es-MX', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      });
+    }
+
+    if (typeof valor === 'string') {
+      const numero = Number(valor);
+      if (!Number.isNaN(numero)) {
+        return numero.toLocaleString('es-MX', {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2
+        });
+      }
+    }
+
+    return valor;
+  }
+
+  formatearPorcentaje(valor) {
+    const formatear = (numero) => {
+      const hasDecimals = Math.abs(numero) % 1 !== 0;
+      return `${numero.toLocaleString('es-MX', {
+        minimumFractionDigits: hasDecimals ? 1 : 0,
+        maximumFractionDigits: 2
+      })}%`;
+    };
+
+    if (typeof valor === 'number') {
+      return formatear(valor);
+    }
+
+    if (typeof valor === 'string') {
+      const trimmed = valor.trim();
+      if (trimmed.endsWith('%')) {
+        return trimmed;
+      }
+
+      const numero = Number(trimmed);
+      if (!Number.isNaN(numero)) {
+        return formatear(numero);
+      }
+
+      return trimmed;
+    }
+
+    return valor;
+  }
+
   // Obtener datos de una slide específica
   getSlideData(slideId) {
     return this.data?.slides?.[slideId] || null;
@@ -119,9 +170,13 @@ class CostosManager {
       valor = this.getSlideData(slideId)?.[campo];
     }
 
-    if (valor !== null) {
+    if (valor !== null && valor !== undefined) {
       if (tipo === 'monto') {
         elemento.textContent = this.formatearMonto(valor);
+      } else if (tipo === 'numero') {
+        elemento.textContent = this.formatearNumero(valor);
+      } else if (tipo === 'porcentaje') {
+        elemento.textContent = this.formatearPorcentaje(valor);
       } else {
         elemento.textContent = valor;
       }
