@@ -13,7 +13,6 @@ class CostosManager {
         : Date.now();
       const response = await fetch(`costos.json?v=${cacheKey}`, { cache: 'no-store' });
       this.data = await response.json();
-      this.sincronizarTotales();
       this.loaded = true;
       console.log('Datos de costos cargados correctamente');
       return true;
@@ -21,48 +20,6 @@ class CostosManager {
       console.error('Error al cargar datos de costos:', error);
       return false;
     }
-  }
-
-  sincronizarTotales() {
-    const slide19 = this.data?.slides?.slide19;
-    if (!slide19) return;
-
-    const servicios = slide19.servicios || {};
-    const contenido = servicios.contenidoRRSS || {};
-    const creacion = servicios.creacionAds || {};
-    const gestion = servicios.gestionAds || {};
-
-    const costoInicioContenido =
-      typeof contenido.costoInicio === 'number'
-        ? contenido.costoInicio
-        : (typeof contenido.costoMensual === 'number' ? contenido.costoMensual : 0);
-
-    const inversionInicial =
-      (costoInicioContenido || 0) +
-      (typeof creacion.costoInicio === 'number' ? creacion.costoInicio : 0) +
-      (typeof gestion.costoSetup === 'number' ? gestion.costoSetup : 0);
-
-    const serviciosMensuales =
-      (typeof contenido.costoMensual === 'number' ? contenido.costoMensual : 0) +
-      (typeof creacion.costoMensual === 'number' ? creacion.costoMensual : 0) +
-      (typeof gestion.costoMensual === 'number' ? gestion.costoMensual : 0);
-
-    const inversionMedios =
-      typeof slide19.totales?.inversionMedios === 'number'
-        ? slide19.totales.inversionMedios
-        : 0;
-
-    const inversionMensual = serviciosMensuales + inversionMedios;
-    const primeraInversion = inversionInicial + inversionMensual;
-
-    slide19.totales = {
-      ...slide19.totales,
-      serviciosMensuales,
-      inversionInicial,
-      inversionMensual,
-      inversionMedios,
-      primeraInversion
-    };
   }
 
   // Obtener valor formateado con moneda
