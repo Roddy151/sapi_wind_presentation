@@ -46,12 +46,14 @@
       box-shadow:0 18px 46px rgba(5,7,12,.45);
       z-index:30;
     }
+    header.topbar .topbar-brand{display:flex; align-items:center; gap:16px}
     header.topbar img{height:42px; max-width:160px; object-fit:contain}
     header.topbar #logo-wind{max-width:180px}
     header.topbar #logo-sapi{height:52px; max-width:200px; object-fit:contain}
+    header.topbar .topbar-meta{margin-left:auto; display:flex; align-items:center; gap:12px}
     header.topbar .sep{width:1px; height:32px; background:rgba(148,163,184,.25)}
     header.topbar .tag{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#cbd5e1; opacity:.92}
-    header.topbar .section-label{margin-left:auto; padding:6px 14px; border-radius:999px; background:rgba(21,252,175,.14); color:var(--brand); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:11px; opacity:0; transform:translateY(-6px); transition:opacity .3s ease, transform .3s ease}
+    header.topbar .section-label{margin-left:0; padding:6px 14px; border-radius:999px; background:rgba(21,252,175,.14); color:var(--brand); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:11px; opacity:0; transform:translateY(-6px); transition:opacity .3s ease, transform .3s ease}
     header.topbar .section-label.visible{opacity:1; transform:translateY(0)}
 
     .slide{
@@ -1013,16 +1015,41 @@
 
     .kbd{font:600 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; border:1px solid rgba(148,163,184,.45); padding:4px 7px; border-radius:8px; color:#cbd5e1; background:rgba(12,18,27,.72)}
 
+    @media (max-width: 1024px){
+      header.topbar{
+        inset:16px;
+        height:auto;
+        gap:14px;
+        padding:12px 18px;
+      }
+      header.topbar .topbar-brand{gap:14px}
+      header.topbar img{height:38px; max-width:160px}
+      header.topbar #logo-wind{max-width:150px}
+      header.topbar #logo-sapi{height:48px; max-width:190px}
+      header.topbar .topbar-meta{gap:10px}
+      header.topbar .tag{font-size:11px}
+    }
+
     @media (max-width: 768px){
       header.topbar{
-        inset:12px;
+        position:static;
+        inset:auto;
+        width:100%;
+        margin:0 0 16px 0;
         height:auto;
         flex-direction:column;
         align-items:center;
         justify-content:center;
-        gap:10px;
+        gap:12px;
         padding:12px 16px;
         text-align:center;
+        border-radius:20px;
+      }
+      header.topbar .topbar-brand{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
       }
       header.topbar img{
         height:38px;
@@ -1038,19 +1065,31 @@
         max-width:160px;
       }
       header.topbar .sep{display:none}
+      header.topbar .topbar-meta{
+        margin-left:0;
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        gap:8px;
+      }
       header.topbar .tag{
         font-size:11px;
         width:100%;
-        order:3;
       }
       header.topbar .section-label{
-        margin-left:0;
-        order:4;
         width:100%;
         text-align:center;
       }
-      .deck{padding:100px 16px 120px}
-      .slide{padding:20px; border-radius:24px; min-height: calc(100dvh - 160px)}
+      .deck{
+        padding:16px 16px 100px;
+        display:grid;
+        gap:16px;
+      }
+      .slide{
+        padding:20px;
+        border-radius:24px;
+        min-height: unset;
+      }
       .slide::before{inset:-160px -160px auto auto; width:240px; height:240px}
       .slide::after{inset:auto -120px -160px auto; width:200px; height:200px}
       .grid.cols-2{grid-template-columns: 1fr; gap: clamp(16px, 3vw, 24px)}
@@ -2173,12 +2212,15 @@
 <body>
   <!-- Topbar logos -->
   <header class="topbar" aria-label="Barra superior con logos">
-    <img id="logo-wind" src="assets/wind-logo.png" alt="Wind Consulting" title="Wind Consulting" />
-    <span class="sep" aria-hidden="true"></span>
-    <img id="logo-sapi" src="assets/sapi-logo2.png" alt="SAPI Seguridad" title="SAPI Seguridad" />
-    <span class="sep" aria-hidden="true"></span>
-    <span class="tag">Propuesta Comercial · Septiembre 2025</span>
-    <span class="section-label" id="section-label"></span>
+    <div class="topbar-brand">
+      <img id="logo-wind" src="assets/wind-logo.png" alt="Wind Consulting" title="Wind Consulting" />
+      <span class="sep" aria-hidden="true"></span>
+      <img id="logo-sapi" src="assets/sapi-logo2.png" alt="SAPI Seguridad" title="SAPI Seguridad" />
+    </div>
+    <div class="topbar-meta">
+      <span class="tag">Propuesta Comercial · Septiembre 2025</span>
+      <span class="section-label" id="section-label"></span>
+    </div>
   </header>
 
   <main class="deck" id="deck" tabindex="0">
