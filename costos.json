@@ -41,24 +41,24 @@
         },
         "creacionAds": {
           "nombre": "Creación de Ads inicial",
-          "costoInicio": 14000,
+          "costoInicio": 11500,
           "frecuencia": "Bajo demanda",
           "recomendacion": "Cada seis meses",
           "entregables": "8 imágenes fijas, 4 carruseles y 4 videos"
         },
         "gestionAds": {
           "nombre": "Gestión de Ads Digitales",
-          "costoMensual": 9000,
+          "costoMensual": 12500,
           "costoSetup": 9000,
           "comision": 0.3,
           "entregables": "Planificación y gestión de campañas en Google Search y Facebook Ads"
         }
       },
       "totales": {
-        "inversionMensual": 16000,
+        "inversionMensual": 22000,
         "inversionInicial": 30000,
         "inversionMedios": 15000,
-        "primeraInversion": 31000
+        "primeraInversion": 37000
       },
       "notas": {
         "comision": "No incluye porcentaje de comisión por pagos publicitarios",
