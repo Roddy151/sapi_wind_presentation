@@ -1,0 +1,200 @@
+{
+  "slides": {
+    "slide14": {
+       "title": "Inversión medios",
+       "inversionTotalMensual": 30000,
+       "leadsEsperados": 2000,
+       "costoPorLead": 15,
+       "distribucion": {
+         "facebook": {
+           "inversion": 15000,
+           "leads": 1000,
+           "cpl": 15,
+           "descripcion": "Mayor alcance en audiencias específicas",
+           "alcance": 150000,
+           "ctr": 2.5,
+           "conversion": 0.67
+         },
+         "instagram": {
+           "inversion": 15000,
+           "leads": 1000,
+           "cpl": 15,
+           "descripcion": "Contenido visual atractivo para engagement",
+           "alcance": 120000,
+           "ctr": 3.2,
+           "conversion": 0.83
+         }
+       },
+       "optimizacion": {
+         "segmentacion": "Ubicación geográfica y demográfica",
+         "mejora": "Mejora continua basada en datos reales"
+       }
+     },
+    "slide19": {
+      "title": "Presupuesto de servicios",
+      "servicios": {
+        "contenidoRRSS": {
+          "nombre": "Contenido para RRSS",
+          "costoMensual": 7000,
+          "entregables": "4 imágenes fijas, 2 carruseles y 2 videos"
+        },
+        "creacionAds": {
+          "nombre": "Creación de Ads inicial",
+          "costoInicio": 14000,
+          "frecuencia": "bajo demanda",
+          "recomendacion": "cada seis meses",
+          "entregables": "8 imágenes fijas, 4 carruseles y 4 videos"
+        },
+        "gestionAds": {
+          "nombre": "Gestión de Ads Digitales",
+          "costoMensual": 9000,
+          "costoSetup": 9000,
+          "comision": 0.30,
+          "entregables": "Planificación y gestión de campañas en Google Search y Facebook Ads"
+        }
+      },
+      "totales": {
+        "inversionMensual": 16000,
+        "inversionInicial": 30000,
+        "inversionMedios": 30000,
+        "primeraInversion": 46000
+      },
+      "notas": {
+        "comision": "No incluye porcentaje de comisión por pagos publicitarios",
+        "iva": "Precios en MXN más IVA",
+        "implementacion": "15 días hábiles después de proporcionar accesos y pagos iniciales"
+      }
+    },
+    "slide21": {
+      "title": "Ofertronix",
+      "metricas": {
+        "roi": {
+          "valor": 13,
+          "unidad": "USD",
+          "descripcion": "x 1 invertido"
+        },
+        "compras": {
+          "valor": 634,
+          "descripcion": "total de compras"
+        },
+        "roas": {
+          "valor": 1300,
+          "unidad": "%",
+          "descripcion": "retorno de inversión publicitaria"
+        }
+      },
+      "problema": "Anunciaba sus publicaciones de Instagram empleando la herramienta de promoción de la misma plataforma",
+      "objetivos": [
+        "Implementar campañas publicitarias rentables",
+        "Generar conversiones en la página web"
+      ]
+    },
+    "slide22": {
+      "title": "Vigilantia",
+      "metricas": {
+        "cpa": {
+          "valor": 0.2,
+          "unidad": "USD",
+          "descripcion": "por postulante"
+        },
+        "leadsMensuales": {
+          "valor": 9000,
+          "descripcion": "leads generados"
+        },
+        "optimizacion": {
+          "valor": 50,
+          "unidad": "%",
+          "descripcion": "de presupuesto optimizado"
+        }
+      },
+      "objetivos": [
+        "Generar nuevos postulantes para diferentes posiciones en todo el país",
+        "Desarrollar flujo a través de los canales de calificación (Chatbot y Call Center)"
+      ]
+    },
+    "slide23": {
+      "title": "Del Arenal",
+      "metricas": {
+        "campanas": {
+          "valor": 50,
+          "descripcion": "campañas en Facebook y Google en simultáneo"
+        },
+        "roas": {
+          "valor": 2000,
+          "unidad": "%",
+          "descripcion": "retorno de inversión"
+        },
+        "crecimiento": {
+          "valor": 100,
+          "unidad": "%",
+          "descripcion": "crecimiento en tráfico"
+        }
+      },
+      "resultados": {
+        "ventas": "500% ventas de cotización web/chat"
+      },
+      "objetivos": [
+        "Posicionar su ecommerce",
+        "Crecer 10X las cifras de ventas",
+        "Alcanzar la misma rentabilidad que sus tiendas físicas"
+      ]
+    },
+    "slide24": {
+      "title": "Mexfon",
+      "metricas": {
+        "conversaciones": {
+          "valor": 7352,
+          "descripcion": "conversaciones generadas"
+        },
+        "ventas": {
+          "valor": 744,
+          "descripcion": "ventas en tráfico"
+        },
+        "alcance": {
+          "valor": 838335,
+          "descripcion": "alcance total"
+        }
+      },
+      "objetivos": [
+        "Desarrollar esfuerzos de marketing digital orientados a conseguir ventas con un costo de 250 MXN",
+        "Generar estrategias de posicionamiento en el mercado",
+        "Generación de recompra y recarga a través de los canales digitales"
+      ],
+      "cpa": 235630
+    }
+  },
+  "formulas": {
+    "slide14": {
+      "costoPorLead": "inversionTotalMensual / leadsEsperados",
+      "totalInversion": "distribucion.facebook.inversion + distribucion.instagram.inversion",
+      "facebookCPL": "distribucion.facebook.inversion / distribucion.facebook.leads",
+      "instagramCPL": "distribucion.instagram.inversion / distribucion.instagram.leads"
+    },
+    "slide19": {
+      "inversionMensual": "servicios.contenidoRRSS.costoMensual + servicios.gestionAds.costoMensual",
+      "primeraInversion": "totales.inversionInicial + totales.inversionMensual + totales.inversionMedios",
+      "comisionAds": "totales.inversionMedios * servicios.gestionAds.comision"
+    },
+    "slide21": {
+      "roas": "metricas.roi.valor * 100"
+    },
+    "slide22": {
+      "cpaOptimizado": "metricas.cpa.valor * (1 - (metricas.optimizacion.valor / 100))"
+    },
+    "slide23": {
+      "eficiencia": "metricas.roas.valor / 100"
+    },
+    "slide24": {
+      "costoPorVenta": "cpa / (ventas / alcance)"
+    }
+  },
+  "configuracion": {
+    "moneda": "MXN",
+    "formato": {
+      "decimales": 0,
+      "separadorMiles": ",",
+      "simboloMoneda": "$"
+    },
+    "actualizacion": "2025-09-25"
+  }
+}
