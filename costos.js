@@ -3,6 +3,11 @@ class CostosManager {
   constructor() {
     this.data = null;
     this.loaded = false;
+    this.autoRefreshInterval = null;
+    this.lastDataSignature = null;
+    this.refreshIntervalMs = 5000;
+    this.remoteRefreshInProgress = false;
+    this.fileHandle = null;
   }
 
   // Cargar datos del JSON
@@ -12,13 +17,120 @@ class CostosManager {
         ? window.COSTOS_DATA_VERSION
         : Date.now();
       const response = await fetch(`costos.json?v=${cacheKey}`, { cache: 'no-store' });
-      this.data = await response.json();
+      const rawData = await response.json();
+      const firmaOriginal = this.obtenerDataSignature(rawData);
+      this.data = rawData;
+      this.recalcularDerivados();
+      this.lastDataSignature = firmaOriginal;
       this.loaded = true;
       console.log('Datos de costos cargados correctamente');
       return true;
     } catch (error) {
       console.error('Error al cargar datos de costos:', error);
+
+      let dataFallback = null;
+      if (this.puedeUsarFileSystemAccess()) {
+        dataFallback = await this.cargarDatosDesdeFileSystem(true);
+      }
+
+      if (dataFallback) {
+        const firmaOriginal = this.obtenerDataSignature(dataFallback);
+        this.data = dataFallback;
+        this.recalcularDerivados();
+        this.lastDataSignature = firmaOriginal;
+        this.loaded = true;
+        console.log('Datos de costos cargados desde selección manual');
+        return true;
+      }
+
       return false;
+    }
+  }
+
+  actualizarElementosConDatos() {
+    if (!this.loaded) return;
+
+    const elementos = document.querySelectorAll('[data-costo-slide][data-costo-campo]');
+
+    console.debug(`[Costos] Refrescando ${elementos.length} elementos en pantalla`);
+    elementos.forEach(elemento => {
+      const slideId = elemento.getAttribute('data-costo-slide');
+      const campo = elemento.getAttribute('data-costo-campo');
+      const tipo = elemento.getAttribute('data-costo-tipo') || 'texto';
+
+      this.actualizarElemento(elemento, slideId, campo, tipo);
+    });
+  }
+
+  iniciarAutoRefresh() {
+    if (typeof window === 'undefined') return;
+    if (this.autoRefreshInterval) return;
+
+    const enabled = window.COSTOS_AUTO_REFRESH_ENABLED;
+    if (enabled === false) return;
+
+    const intervaloConfigurado = Number(window.COSTOS_AUTO_REFRESH_INTERVAL);
+    if (!Number.isNaN(intervaloConfigurado) && intervaloConfigurado >= 1000) {
+      this.refreshIntervalMs = intervaloConfigurado;
+    }
+
+    console.info(`[Costos] Auto-refresh activado cada ${this.refreshIntervalMs / 1000}s`);
+    this.autoRefreshInterval = window.setInterval(() => {
+      this.verificarActualizacionesRemotas();
+    }, this.refreshIntervalMs);
+
+    // Ejecutar una verificación inicial en segundo plano para reflejar cambios recientes
+    window.setTimeout(() => {
+      this.verificarActualizacionesRemotas();
+    }, 1000);
+  }
+
+  async verificarActualizacionesRemotas() {
+    if (!this.loaded || this.remoteRefreshInProgress) return;
+
+    this.remoteRefreshInProgress = true;
+    try {
+      console.debug('[Costos] Verificando cambios en costos.json...');
+      const response = await fetch(`costos.json?v=${Date.now()}`, { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const nuevaData = await response.json();
+      const nuevaFirma = this.obtenerDataSignature(nuevaData);
+
+      if (nuevaFirma && nuevaFirma !== this.lastDataSignature) {
+        this.data = nuevaData;
+        this.recalcularDerivados();
+        this.lastDataSignature = nuevaFirma;
+        this.actualizarElementosConDatos();
+        console.info('[Costos] Datos actualizados por cambio en costos.json');
+        const slide19 = this.data?.slides?.slide19;
+        if (slide19) {
+          console.debug('[Costos] Nuevos valores slide19:', {
+            contenidoMensual: slide19.servicios?.contenidoRRSS?.costoMensual,
+            gestionMensual: slide19.servicios?.gestionAds?.costoMensual,
+            inversionMensual: slide19.totales?.inversionMensual,
+            primeraInversion: slide19.totales?.primeraInversion
+          });
+        }
+      }
+    } catch (error) {
+      console.warn('No se pudo refrescar costos.json automáticamente:', error);
+
+      const dataFallback = await this.cargarDatosDesdeFileSystem();
+      if (dataFallback) {
+        const nuevaFirma = this.obtenerDataSignature(dataFallback);
+        if (nuevaFirma && nuevaFirma !== this.lastDataSignature) {
+          this.data = dataFallback;
+          this.recalcularDerivados();
+          this.lastDataSignature = nuevaFirma;
+          this.actualizarElementosConDatos();
+          console.info('[Costos] Datos actualizados desde el sistema de archivos');
+        }
+      }
+    } finally {
+      this.remoteRefreshInProgress = false;
     }
   }
 
@@ -34,6 +146,16 @@ class CostosManager {
       })}`;
     }
     return monto;
+  }
+
+  toNumber(valor) {
+    if (typeof valor === 'number') return valor;
+    if (typeof valor === 'string') {
+      const normalizado = valor.replace(/[^0-9.,-]/g, '').replace(/,/g, '');
+      const numero = Number(normalizado);
+      return Number.isNaN(numero) ? 0 : numero;
+    }
+    return 0;
   }
 
   formatearNumero(valor) {
@@ -85,6 +207,109 @@ class CostosManager {
     }
 
     return valor;
+  }
+
+  obtenerDataSignature(data) {
+    try {
+      return JSON.stringify(data);
+    } catch (error) {
+      console.warn('No se pudo generar la firma de los datos de costos:', error);
+      return null;
+    }
+  }
+
+  puedeUsarFileSystemAccess() {
+    return typeof window !== 'undefined' && typeof window.showOpenFilePicker === 'function';
+  }
+
+  async cargarDatosDesdeFileSystem(forzarSeleccion = false) {
+    if (!this.puedeUsarFileSystemAccess()) return null;
+
+    try {
+      if (!this.fileHandle || forzarSeleccion) {
+        const [handle] = await window.showOpenFilePicker({
+          multiple: false,
+          types: [
+            {
+              description: 'Archivo de costos JSON',
+              accept: {
+                'application/json': ['.json']
+              }
+            }
+          ]
+        });
+        this.fileHandle = handle;
+      }
+
+      if (!this.fileHandle) return null;
+
+      const file = await this.fileHandle.getFile();
+      const text = await file.text();
+      return JSON.parse(text);
+    } catch (error) {
+      console.warn('No se pudo leer costos.json desde el sistema de archivos:', error);
+      if (forzarSeleccion) {
+        alert('No se pudo cargar costos.json. Verifica el archivo y vuelve a intentarlo.');
+      }
+      return null;
+    }
+  }
+
+  recalcularDerivados() {
+    if (!this.data?.slides) return;
+
+    const { slides } = this.data;
+
+    // Recalcular métricas del slide 14 a partir de la distribución
+    const slide14 = slides.slide14;
+    if (slide14?.distribucion) {
+      const canales = Object.values(slide14.distribucion);
+
+      const totalInversion = canales.reduce((acum, canal) => acum + this.toNumber(canal.inversion), 0);
+      const totalLeads = canales.reduce((acum, canal) => acum + this.toNumber(canal.leads), 0);
+
+      slide14.inversionTotalMensual = totalInversion;
+      slide14.leadsEsperados = totalLeads;
+      slide14.costoPorLead = totalLeads > 0 ? Number((totalInversion / totalLeads).toFixed(2)) : 0;
+
+      canales.forEach(canal => {
+        const leads = this.toNumber(canal.leads);
+        const inversion = this.toNumber(canal.inversion);
+        if (leads > 0) {
+          canal.cpl = Number((inversion / leads).toFixed(2));
+        }
+      });
+    }
+
+    // Recalcular totales del slide 19 a partir de los servicios base
+    const slide19 = slides.slide19;
+    if (slide19?.servicios) {
+      const servicios = slide19.servicios;
+      const contenido = servicios.contenidoRRSS || {};
+      const creacion = servicios.creacionAds || {};
+      const gestion = servicios.gestionAds || {};
+
+      const costoInicioContenido = this.toNumber(contenido.costoInicio);
+      const costoMensualContenido = this.toNumber(contenido.costoMensual);
+      const costoInicioCreacion = this.toNumber(creacion.costoInicio);
+      const costoSetupGestion = this.toNumber(gestion.costoSetup);
+      const costoMensualGestion = this.toNumber(gestion.costoMensual);
+
+      const inversionInicial = costoInicioContenido + costoInicioCreacion + costoSetupGestion;
+      const inversionMensual = costoMensualContenido + costoMensualGestion;
+
+      // Inversión de medios se basa en el slide 14 por defecto
+      const inversionMedios = slides.slide14?.inversionTotalMensual ?? this.toNumber(slide19.totales?.inversionMedios);
+      const primeraInversion = inversionMensual + inversionMedios;
+
+      slide19.totales = {
+        ...slide19.totales,
+        inversionInicial,
+        inversionMensual,
+        inversionMedios,
+        primeraInversion
+      };
+    }
   }
 
   // Obtener datos de una slide específica
@@ -197,21 +422,14 @@ class CostosManager {
     const cargado = await this.cargarDatos();
     if (cargado) {
       this.configurarActualizacionesAutomaticas();
+      this.iniciarAutoRefresh();
     }
     return cargado;
   }
 
   // Configurar actualizaciones automáticas para elementos con data attributes
   configurarActualizacionesAutomaticas() {
-    const elementos = document.querySelectorAll('[data-costo-slide][data-costo-campo]');
-
-    elementos.forEach(elemento => {
-      const slideId = elemento.getAttribute('data-costo-slide');
-      const campo = elemento.getAttribute('data-costo-campo');
-      const tipo = elemento.getAttribute('data-costo-tipo') || 'texto';
-
-      this.actualizarElemento(elemento, slideId, campo, tipo);
-    });
+    this.actualizarElementosConDatos();
   }
 }
 
@@ -222,6 +440,14 @@ const Costos = {
   // Inicializar
   async inicializar() {
     return await this.manager.inicializar();
+  },
+
+  async refrescar() {
+    if (!this.manager.loaded) {
+      console.warn('[Costos] No hay datos cargados todavía. Ejecuta Costos.inicializar() primero.');
+      return;
+    }
+    await this.manager.verificarActualizacionesRemotas();
   },
 
   // Obtener datos formateados
@@ -247,4 +473,5 @@ const Costos = {
 // Inicializar automáticamente cuando se carga la página
 document.addEventListener('DOMContentLoaded', async () => {
   await Costos.inicializar();
+  window.Costos = Costos;
 });

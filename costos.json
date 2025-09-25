@@ -35,8 +35,8 @@
       "servicios": {
         "contenidoRRSS": {
           "nombre": "Contenido para RRSS",
-          "costoInicio": 7000,
-          "costoMensual": 7000,
+          "costoInicio": 9500,
+          "costoMensual": 600,
           "entregables": "4 imágenes fijas, 2 carruseles y 2 videos"
         },
         "creacionAds": {
