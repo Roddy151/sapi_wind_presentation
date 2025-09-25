@@ -83,13 +83,20 @@ class CostosManager {
   }
 
   // Actualizar elemento HTML con datos de costos
-  actualizarElemento(elementoId, slideId, campo, tipo = 'texto') {
+  actualizarElemento(destino, slideId, campo, tipo = 'texto') {
     if (!this.loaded) {
       console.warn('Datos de costos no cargados');
       return;
     }
 
-    const elemento = document.getElementById(elementoId);
+    let elemento = null;
+    if (typeof destino === 'string') {
+      if (!destino) return;
+      elemento = document.getElementById(destino);
+    } else if (destino && typeof destino === 'object' && destino.nodeType === 1) {
+      elemento = destino;
+    }
+
     if (!elemento) return;
 
     let valor = null;
@@ -148,7 +155,7 @@ class CostosManager {
       const campo = elemento.getAttribute('data-costo-campo');
       const tipo = elemento.getAttribute('data-costo-tipo') || 'texto';
 
-      this.actualizarElemento(elemento.id, slideId, campo, tipo);
+      this.actualizarElemento(elemento, slideId, campo, tipo);
     });
   }
 }
