@@ -62,7 +62,7 @@
       },
       "notas": {
         "comision": "No incluye porcentaje de comisión por pagos publicitarios",
-        "iva": "Precios en MXN más IVA",
+        "iva": "Precios en MXN sin IVA",
         "implementacion": "15 días hábiles después de proporcionar accesos y pagos iniciales"
       }
     },
